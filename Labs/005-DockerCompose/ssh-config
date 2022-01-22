@@ -1,0 +1,21 @@
+Host lima-docker
+  IdentityFile "/Users/nirg/.lima/_config/user"
+  IdentityFile "/Users/nirg/.ssh/aws"
+  IdentityFile "/Users/nirg/.ssh/google_compute_engine"
+  IdentityFile "/Users/nirg/.ssh/id_rsa"
+  IdentityFile "/Users/nirg/.ssh/podman-machine-default"
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+  NoHostAuthenticationForLocalhost yes
+  GSSAPIAuthentication no
+  PreferredAuthentications publickey
+  Compression no
+  BatchMode yes
+  IdentitiesOnly yes
+  Ciphers "^aes128-gcm@openssh.com,aes256-gcm@openssh.com"
+  User nirg
+  ControlMaster auto
+  ControlPath "/Users/nirg/.lima/docker/ssh.sock"
+  ControlPersist yes
+  Hostname 127.0.0.1
+  Port 65041

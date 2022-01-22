@@ -1,0 +1,5 @@
+.dockerignore
+
+
+ssh -F /Users/nirg/.lima/docker/ssh.config lima-docker
+ls -la /home/nirg.linux/.local/share/docker/volumes/portainer_portainer_data/_data
