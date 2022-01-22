@@ -1,0 +1,16 @@
+# Build the base image
+FROM    alpine AS base_image
+
+# Add some packages to the base image
+FROM    base_image  AS build-curl
+RUN     echo -e "\033[1;33mThis file is from curl image\033[0m" > image.txt
+
+# Add some packages to the base image
+FROM    base_image  AS build-bash
+RUN     echo -e "\033[1;32mThis file is from bash image\033[0m" > image.txt
+
+#   Build the desired image
+FROM    build-curl
+COPY    --from=2 image.txt .
+RUN     cat image.txt
+CMD     cat image.txt

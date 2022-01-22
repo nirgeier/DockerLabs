@@ -1,0 +1,48 @@
+# Create the docker-compose file in the registry directory
+version: '3'
+services:
+  # The docker registry service
+  registry:
+  
+    # The name of the container
+    container_name: local_registry
+
+    # The registry image which we will use
+    image: registry
+    # Ensures to start Docker Registry
+    restart: always
+    # The port on which the registry will be listen on
+    ports:
+    - "5005:5000"
+    - "443:443"
+    # Registry environment variables
+    
+    environment:
+      REGISTRY_AUTH: "htpasswd"
+      REGISTRY_HTTP_ADDR: "0.0.0.0:443"
+      REGISTRY_HTTP_TLS_KEY: "/${KEY_FILE}"
+      REGISTRY_AUTH_HTPASSWD_PATH: "/${AUTH_FILE}"
+      REGISTRY_HTTP_TLS_CERTIFICATE: "/${CERT_FILE}"
+      REGISTRY_AUTH_HTPASSWD_REALM: "Registry Realm"
+      REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /${REGISTRY_DATA_FOLDER}
+      
+    # mounted volumes
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock 
+      - ./${REGISTRY_DATA_FOLDER}:/var/lib/registry
+      - ./${REGISTRY_CERT_FOLDER}:/${REGISTRY_CERT_FOLDER}
+      - ./${REGISTRY_AUTH_FOLDER}/htpasswd:/${REGISTRY_AUTH_FOLDER}/htpasswd
+      # - ./registry-config/simple.yml:/etc/docker/registry/config.yml
+      # - ./config.yml:/etc/docker/registry/config.yml
+      
+
+  registyr-ui:
+    image: joxit/docker-registry-ui:latest
+    ports:
+      - 9090:80
+    environment:
+      REGISTRY_TITLE: "My Private Docker Registry"
+      REGISTRY_URL: "https://localhost"
+      SINGLE_REGISTRY: "true"
+    depends_on:
+      - registry 
