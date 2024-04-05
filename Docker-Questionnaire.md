@@ -1,12 +1,14 @@
 # Docker Questionnaire
 
-1.  Which docker command will run and container in the background
-    ```
-    a. docker run -b alpine
-    b. docker run -d alpine
-    c. docker run -it alpine /bin/bash
-    d. docker run -it -d=false alpine
-    ```
+:question: 1. Which docker command will run and container in the background
+    
+```
+a. docker run -b alpine
+b. docker run -d alpine
+c. docker run -it alpine /bin/bash
+d. docker run -it -d=false alpine
+```
+
 2.  Which docker command will remove docker container?
     ```
     a. docker rm

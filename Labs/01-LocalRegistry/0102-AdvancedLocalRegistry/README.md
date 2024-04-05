@@ -41,10 +41,10 @@
 
 ```sh
 # Create the required directories for the advanced configuration
-mkdir -p \
-      registry/nginx  \
-      registry/nginx/conf.d  \
-      registry/nginx/ssl  \
+mkdir -p                      \
+      registry/nginx          \
+      registry/nginx/conf.d   \
+      registry/nginx/ssl      \
       registry/auth
 
 # On GCP shell we cont have tree by default, so lets install it
