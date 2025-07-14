@@ -26,7 +26,6 @@ BPurple='\033[1;35m'      # Purple
 BCyan='\033[1;36m'        # Cyan
 BWhite='\033[1;37m'       # White
 
-
 #
 ###   a bash script that echoes its argument 2 character
 ###   per second.
@@ -46,3 +45,5 @@ function slowecho(){
     done
     echo
 }
+
+

@@ -49,6 +49,7 @@
 - [`docker exec`](#docker-exec)
 - [`docker cp`](#docker-cp)
 - [`docker commit`](#docker-commit)
+- [`docker attach`](#docker-attach)
 
 ---
   
@@ -324,3 +325,23 @@ curl -s localhost:8888
 docker stop custom-nginx
 docker rm   custom-nginx
 ```
+
+### `docker attach`
+- `docker attach` is used to attach your terminal to a running container.
+- This is useful when you want to interact with a container that is already running.
+- For example, if you have a container running a shell or an application that accepts input, you can use `docker attach` to connect to it.
+
+```sh
+# Spin an alpine image and start it in the background
+docker run -it -d --name alpine001 alpine sleep 10000
+
+# Attach to the container and start a shell inside it
+docker attach alpine001
+```     
+
+> [!NOTE]
+> - To detach from the container without stopping it, you can use the `CTRL + P` followed by `CTRL + Q` key combination.
+> - This will leave the container running in the background while you return to your terminal. 
+> - **This detach sequence only works if the container was started with the -it flags (interactive with a TTY)**
+
+```sh

@@ -1,0 +1,12 @@
+services:
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "${PORT}:80"
+    volumes:
+      - ./html:/usr/share/nginx/html:rw
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./_utils/entrypoint.sh:/entrypoint.sh:ro
+    environment:
+      - MESSAGE=${MESSAGE}
+    entrypoint: ["/bin/sh", "/entrypoint.sh"]

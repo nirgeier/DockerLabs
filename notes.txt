@@ -3,3 +3,18 @@
 
 ssh -F /Users/nirg/.lima/docker/ssh.config lima-docker
 ls -la /home/nirg.linux/.local/share/docker/volumes/portainer_portainer_data/_data
+
+// Docker compose - can we set up folders
+// Docker compose container names
+
+
+# Start Colima with Docker
+colima  start                       \
+        --cpu       4               \
+        --memory    8               \
+        --disk      50              \
+        --mount-type virtiofs       \
+        --mount     /Users:/Users:w \
+        --mount     /tmp:/tmp:w     \
+        --runtime   docker          \
+        --kubernetes            

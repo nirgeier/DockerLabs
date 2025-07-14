@@ -1,8 +1,8 @@
 #!/bin/bash
 
-### In this lab we will create our first conteiner
+### In this lab we will create our first container
 
-# Preperations
+# Preparations
 
 source ../../_utils/common.sh
 
@@ -31,7 +31,7 @@ fi
 # Set the location for our demo 
 BASE_FOLDER="/tmp/docker/000-FirstContainer"
 
-# Clear any prevoius data
+# Clear any previous data
 rm    -rf   $BASE_FOLDER
 mkdir -p    $BASE_FOLDER
 cd          $BASE_FOLDER
@@ -131,7 +131,7 @@ CMD ["node", "server.js"]
 EOF
 
 echo -e "* ${Yellow}Verifying Dockerfile (linting)${Color_Off}"
-docker run --rm -i hadolint/hadolint < Dockerfile
+docker run --rm -i hadolint/hadolint:latest-alpine < Dockerfile
 
 echo -e "* ${Yellow}Building the docker image${Color_Off}"  
 echo -e "   * ${Green}Tagging the docker image: ${Green}nirgeier/docker-labs-000${Color_Off}"  
@@ -165,9 +165,9 @@ docker logs 000-container
 ### Test that the container is working as expected
 echo -e "* ${Yellow}Test the container${Color_Off}"  
 echo -e ""
-echo -e "${Green}-------------------------------------------${Color_Off}"  
+echo -e "${Green}==========================================${Color_Off}"  
 echo -e "${Green}$(curl -s localhost:8888)"  
-echo -e "${Green}-------------------------------------------${Color_Off}"  
+echo -e "${Green}==========================================${Color_Off}"  
 
 
 ### Clean up

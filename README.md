@@ -16,7 +16,7 @@
 - A collection of Hands-on Docker labs.
 - Each lab is a standalone lab and does not require to complete the previous labs.
 
-### Pre-Requirements
+## Pre-Requirements
 
 - Docker installation
 
@@ -30,12 +30,11 @@
 
 ---
 
-# Docker
-
 ### Preface
 
 - Prior to Docker we had to use 3<sup>rd</sup> party tools for virtualization
-- Docker relay on Linux Kernel 3.8.13 and above. This version added the required features for executing Docker at kernel level
+- Docker relay on Linux Kernel 3.8.13 and above. 
+- This version added the required features for executing Docker at kernel level
 - Docker is based upon [Linux Container](#what-is-a-container)
 
 ---
