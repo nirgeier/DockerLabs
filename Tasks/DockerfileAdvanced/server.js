@@ -1,6 +1,6 @@
 /**
  * @fileoverview Simple HTTP server that responds with the current timestamp
- * @author Docker Labs
+ * @author Nir Geier
  */
 
 const http = require("http");
