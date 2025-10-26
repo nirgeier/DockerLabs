@@ -1,0 +1,12 @@
+###
+### mkdocs-site.yml
+###
+docs_dir: Labs
+edit_uri:
+repo_name: nirgeier/DockerLabs
+repo_url: https://github.com/nirgeier/DockerLabs
+site_author: Nir Geier - nirgeier@gmail.com
+site_description: A collection of GitHub Labs for learning and practicing Docker skills.
+site_dir: ./mkdocs-site
+site_name: DockerLabs - Docker Hands-On
+site_url: https://nirgeier.github.io/DockerLabs/

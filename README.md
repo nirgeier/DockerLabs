@@ -30,6 +30,12 @@
 
 ---
 
+![TL;DR](./mkdocs/overrides/assets/images/tldr.png)
+- Link to the online version of this repository:
+  https://nirgeier.github.io/DockerLabs
+
+---
+
 ### Preface
 
 - Prior to Docker we had to use 3<sup>rd</sup> party tools for virtualization
