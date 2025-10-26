@@ -540,6 +540,8 @@
       
         
       
+        
+      
     
     
     
@@ -2029,6 +2031,10 @@ Expected output:
 <td>In-class exercise for capturing container changes with <code>docker commit</code>.</td>
 </tr>
 <tr>
+<td><a href="#tasks-dockerdebug">DockerDebug</a></td>
+<td>Debugging challenge: troubleshoot a crashing Flask container and fix missing configurations.</td>
+</tr>
+<tr>
 <td><a href="#tasks-dockerfileadvanced">DockerfileAdvanced</a></td>
 <td>Advanced Dockerfile exercise covering BuildKit secrets, caching, and health checks.</td>
 </tr>
@@ -2195,7 +2201,199 @@ Expected output:
 <li><strong>docker run &ndash;rm new-image cat file</strong>: Launches the new image, verifies the persistent file, and removes the container when done</li>
 <li><strong>Cleanup commands</strong>: Remove the temporary container and image to free resources</li>
 </ul>
-</details></section><section class="print-page" id="tasks-dockerfileadvanced" heading-number="2.4"><h1 id="tasks-dockerfileadvanced-in-class-exercise-parameterized-nodejs-time-server">In-Class Exercise - Parameterized Node.js Time Server<a class="headerlink" href="#tasks-dockerfileadvanced-in-class-exercise-parameterized-nodejs-time-server" title="Permanent link">&para;</a></h1>
+</details></section><section class="print-page" id="tasks-dockerdebug" heading-number="2.4"><h1 id="tasks-dockerdebug-in-class-exercise-docker-container-debugging-challenge">In-Class Exercise - Docker Container Debugging Challenge<a class="headerlink" href="#tasks-dockerdebug-in-class-exercise-docker-container-debugging-challenge" title="Permanent link">&para;</a></h1>
+<p><img alt="DockerLabs Banner" src="../assets/images/docker-logos.png" /></p>
+<hr />
+<h2 id="tasks-dockerdebug-the-challenge">The Challenge<a class="headerlink" href="#tasks-dockerdebug-the-challenge" title="Permanent link">&para;</a></h2>
+<p>A web application container is crashing immediately after startup, and you need to debug it using Docker tools and techniques. Your mission: identify the root cause and fix the issue without modifying the original Dockerfile until you&rsquo;ve diagnosed the problem.</p>
+<h2 id="tasks-dockerdebug-scenario">Scenario<a class="headerlink" href="#tasks-dockerdebug-scenario" title="Permanent link">&para;</a></h2>
+<p>You&rsquo;ve inherited a Python Flask application that worked yesterday but now fails to start. The container exits with code 1, and you need to investigate:</p>
+<ul>
+<li>Why is the container crashing?</li>
+<li>What files or configurations are missing?</li>
+<li>How can you inspect a container that won&rsquo;t stay running?</li>
+<li>Can you fix it interactively before updating the Dockerfile?</li>
+</ul>
+<h2 id="tasks-dockerdebug-task-checklist">Task Checklist<a class="headerlink" href="#tasks-dockerdebug-task-checklist" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Build the provided broken Docker image</li>
+<li>Attempt to run it and observe the failure</li>
+<li>Use Docker debugging techniques to inspect the crashed container</li>
+<li>Override the entrypoint to keep the container alive for investigation</li>
+<li>Explore the filesystem and identify the missing configuration file</li>
+<li>Fix the issue interactively and verify the application works</li>
+<li>Update the Dockerfile with the permanent fix</li>
+<li>Document your debugging process</li>
+</ul>
+<h2 id="tasks-dockerdebug-acceptance-criteria">Acceptance Criteria<a class="headerlink" href="#tasks-dockerdebug-acceptance-criteria" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Identify the root cause without looking at the solution first</li>
+<li>Successfully get the application running using debugging techniques</li>
+<li>Demonstrate at least two different debugging methods (e.g., <code>docker logs</code>, entrypoint override, <code>docker exec</code>)</li>
+<li>Apply a permanent fix to the Dockerfile</li>
+</ul>
+<h2 id="tasks-dockerdebug-tips">Tips<a class="headerlink" href="#tasks-dockerdebug-tips" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>docker logs &lt;container&gt;</code> shows output even from crashed containers</li>
+<li><code>docker run --entrypoint /bin/sh</code> can override the startup command</li>
+<li><code>docker exec</code> requires a running container, but <code>docker run -it</code> with an overridden entrypoint keeps it alive</li>
+<li>The <code>--rm</code> flag is helpful during debugging to avoid container clutter</li>
+<li>Use <code>docker inspect</code> to see container configuration and state</li>
+</ul>
+<details>
+<summary>Solution</summary>
+<h2 id="tasks-dockerdebug-broken-application-files">Broken Application Files<a class="headerlink" href="#tasks-dockerdebug-broken-application-files" title="Permanent link">&para;</a></h2>
+<h3 id="tasks-dockerdebug-apppy"><code>app.py</code><a class="headerlink" href="#tasks-dockerdebug-apppy" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#tasks-dockerdebug-__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#tasks-dockerdebug-__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#tasks-dockerdebug-__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#tasks-dockerdebug-__codelineno-0-4"></a><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#tasks-dockerdebug-__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#tasks-dockerdebug-__codelineno-0-6"></a><span class="c1"># Load configuration</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#tasks-dockerdebug-__codelineno-0-7"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/app/config.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#tasks-dockerdebug-__codelineno-0-8"></a>    <span class="n">config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#tasks-dockerdebug-__codelineno-0-9"></a>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#tasks-dockerdebug-__codelineno-0-10"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#tasks-dockerdebug-__codelineno-0-11"></a><span class="k">def</span><span class="w"> </span><span class="nf">hello</span><span class="p">():</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#tasks-dockerdebug-__codelineno-0-12"></a>    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Hello from </span><span class="si">{</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;app_name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">! Running on port </span><span class="si">{</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;port&#39;</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#tasks-dockerdebug-__codelineno-0-13"></a>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#tasks-dockerdebug-__codelineno-0-14"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#tasks-dockerdebug-__codelineno-0-15"></a>    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;port&#39;</span><span class="p">])</span>
+</span></code></pre></div>
+<h3 id="tasks-dockerdebug-requirementstxt"><code>requirements.txt</code><a class="headerlink" href="#tasks-dockerdebug-requirementstxt" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#tasks-dockerdebug-__codelineno-1-1"></a>Flask==3.0.0
+</span></code></pre></div>
+<h3 id="tasks-dockerdebug-dockerfile-broken-version"><code>Dockerfile</code> (Broken Version)<a class="headerlink" href="#tasks-dockerdebug-dockerfile-broken-version" title="Permanent link">&para;</a></h3>
+<div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#tasks-dockerdebug-__codelineno-2-1"></a><span class="c"># syntax=docker/dockerfile:1</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#tasks-dockerdebug-__codelineno-2-2"></a><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.11-slim</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#tasks-dockerdebug-__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#tasks-dockerdebug-__codelineno-2-4"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#tasks-dockerdebug-__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#tasks-dockerdebug-__codelineno-2-6"></a><span class="k">COPY</span><span class="w"> </span>requirements.txt<span class="w"> </span>.
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#tasks-dockerdebug-__codelineno-2-7"></a><span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-cache-dir<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#tasks-dockerdebug-__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#tasks-dockerdebug-__codelineno-2-9"></a><span class="k">COPY</span><span class="w"> </span>app.py<span class="w"> </span>.
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#tasks-dockerdebug-__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#tasks-dockerdebug-__codelineno-2-11"></a><span class="c"># Missing: config.json is NOT copied!</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#tasks-dockerdebug-__codelineno-2-12"></a>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#tasks-dockerdebug-__codelineno-2-13"></a><span class="k">EXPOSE</span><span class="w"> </span><span class="s">5000</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#tasks-dockerdebug-__codelineno-2-14"></a>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#tasks-dockerdebug-__codelineno-2-15"></a><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;app.py&quot;</span><span class="p">]</span>
+</span></code></pre></div>
+<h2 id="tasks-dockerdebug-step-by-step-debugging-solution">Step-by-Step Debugging Solution<a class="headerlink" href="#tasks-dockerdebug-step-by-step-debugging-solution" title="Permanent link">&para;</a></h2>
+<h3 id="tasks-dockerdebug-1-build-the-broken-image">1. Build the Broken Image<a class="headerlink" href="#tasks-dockerdebug-1-build-the-broken-image" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#tasks-dockerdebug-__codelineno-3-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>broken-flask-app<span class="w"> </span>.
+</span></code></pre></div>
+<h3 id="tasks-dockerdebug-2-attempt-to-run-this-will-fail">2. Attempt to Run (This Will Fail)<a class="headerlink" href="#tasks-dockerdebug-2-attempt-to-run-this-will-fail" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#tasks-dockerdebug-__codelineno-4-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--name<span class="w"> </span>flask-debug<span class="w"> </span>-p<span class="w"> </span><span class="m">5000</span>:5000<span class="w"> </span>broken-flask-app
+</span></code></pre></div>
+<p><strong>Observation:</strong> Container exits immediately with error.</p>
+<h3 id="tasks-dockerdebug-3-check-the-logs">3. Check the Logs<a class="headerlink" href="#tasks-dockerdebug-3-check-the-logs" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#tasks-dockerdebug-__codelineno-5-1"></a><span class="c1"># If using --rm, run without it first to preserve the container</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#tasks-dockerdebug-__codelineno-5-2"></a>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>flask-debug<span class="w"> </span>-p<span class="w"> </span><span class="m">5000</span>:5000<span class="w"> </span>broken-flask-app
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#tasks-dockerdebug-__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#tasks-dockerdebug-__codelineno-5-4"></a><span class="c1"># In another terminal</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#tasks-dockerdebug-__codelineno-5-5"></a>docker<span class="w"> </span>logs<span class="w"> </span>flask-debug
+</span></code></pre></div>
+<p><strong>Expected Output:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#tasks-dockerdebug-__codelineno-6-1"></a>Traceback (most recent call last):
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#tasks-dockerdebug-__codelineno-6-2"></a>  File &quot;/app/app.py&quot;, line 6, in &lt;module&gt;
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#tasks-dockerdebug-__codelineno-6-3"></a>    with open(&#39;/app/config.json&#39;, &#39;r&#39;) as f:
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#tasks-dockerdebug-__codelineno-6-4"></a>FileNotFoundError: [Errno 2] No such file or directory: &#39;/app/config.json&#39;
+</span></code></pre></div>
+<p><strong>Diagnosis:</strong> Missing <code>config.json</code> file!</p>
+<h3 id="tasks-dockerdebug-4-debug-by-overriding-the-entrypoint">4. Debug by Overriding the Entrypoint<a class="headerlink" href="#tasks-dockerdebug-4-debug-by-overriding-the-entrypoint" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#tasks-dockerdebug-__codelineno-7-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>--entrypoint<span class="w"> </span>/bin/sh<span class="w"> </span>broken-flask-app
+</span></code></pre></div>
+<p>Inside the container:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#tasks-dockerdebug-__codelineno-8-1"></a>ls<span class="w"> </span>-la<span class="w"> </span>/app/
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#tasks-dockerdebug-__codelineno-8-2"></a><span class="c1"># Shows: app.py, requirements.txt - but NO config.json!</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#tasks-dockerdebug-__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#tasks-dockerdebug-__codelineno-8-4"></a><span class="c1"># Verify Python can&#39;t find it</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#tasks-dockerdebug-__codelineno-8-5"></a>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;open(&#39;/app/config.json&#39;)&quot;</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#tasks-dockerdebug-__codelineno-8-6"></a><span class="c1"># Error: No such file or directory</span>
+</span></code></pre></div>
+<h3 id="tasks-dockerdebug-5-create-the-missing-configuration-file">5. Create the Missing Configuration File<a class="headerlink" href="#tasks-dockerdebug-5-create-the-missing-configuration-file" title="Permanent link">&para;</a></h3>
+<p>Create <code>config.json</code> locally:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#tasks-dockerdebug-__codelineno-9-1"></a><span class="p">{</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#tasks-dockerdebug-__codelineno-9-2"></a><span class="w">  </span><span class="nt">&quot;app_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Flask Debug Demo&quot;</span><span class="p">,</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#tasks-dockerdebug-__codelineno-9-3"></a><span class="w">  </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5000</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#tasks-dockerdebug-__codelineno-9-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="tasks-dockerdebug-6-fix-interactively-with-volume-mount">6. Fix Interactively with Volume Mount<a class="headerlink" href="#tasks-dockerdebug-6-fix-interactively-with-volume-mount" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#tasks-dockerdebug-__codelineno-10-1"></a><span class="c1"># Mount the config file into the container for testing</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#tasks-dockerdebug-__codelineno-10-2"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-p<span class="w"> </span><span class="m">5000</span>:5000<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#tasks-dockerdebug-__codelineno-10-3"></a><span class="w">  </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/config.json:/app/config.json<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#tasks-dockerdebug-__codelineno-10-4"></a><span class="w">  </span>broken-flask-app
+</span></code></pre></div>
+<p>Test the application:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#tasks-dockerdebug-__codelineno-11-1"></a>curl<span class="w"> </span>http://localhost:5000
+</span></code></pre></div>
+<p><strong>Expected Output:</strong></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#tasks-dockerdebug-__codelineno-12-1"></a>Hello from Flask Debug Demo! Running on port 5000
+</span></code></pre></div>
+<h3 id="tasks-dockerdebug-7-apply-permanent-fix-to-dockerfile">7. Apply Permanent Fix to Dockerfile<a class="headerlink" href="#tasks-dockerdebug-7-apply-permanent-fix-to-dockerfile" title="Permanent link">&para;</a></h3>
+<div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#tasks-dockerdebug-__codelineno-13-1"></a><span class="c"># syntax=docker/dockerfile:1</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#tasks-dockerdebug-__codelineno-13-2"></a><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.11-slim</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#tasks-dockerdebug-__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#tasks-dockerdebug-__codelineno-13-4"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#tasks-dockerdebug-__codelineno-13-5"></a>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#tasks-dockerdebug-__codelineno-13-6"></a><span class="k">COPY</span><span class="w"> </span>requirements.txt<span class="w"> </span>.
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#tasks-dockerdebug-__codelineno-13-7"></a><span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-cache-dir<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#tasks-dockerdebug-__codelineno-13-8"></a>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#tasks-dockerdebug-__codelineno-13-9"></a><span class="k">COPY</span><span class="w"> </span>app.py<span class="w"> </span>.
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#tasks-dockerdebug-__codelineno-13-10"></a><span class="k">COPY</span><span class="w"> </span>config.json<span class="w"> </span>.
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#tasks-dockerdebug-__codelineno-13-11"></a>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#tasks-dockerdebug-__codelineno-13-12"></a><span class="k">EXPOSE</span><span class="w"> </span><span class="s">5000</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#tasks-dockerdebug-__codelineno-13-13"></a>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#tasks-dockerdebug-__codelineno-13-14"></a><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;app.py&quot;</span><span class="p">]</span>
+</span></code></pre></div>
+<h3 id="tasks-dockerdebug-8-rebuild-and-verify">8. Rebuild and Verify<a class="headerlink" href="#tasks-dockerdebug-8-rebuild-and-verify" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#tasks-dockerdebug-__codelineno-14-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>fixed-flask-app<span class="w"> </span>.
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#tasks-dockerdebug-__codelineno-14-2"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-p<span class="w"> </span><span class="m">5000</span>:5000<span class="w"> </span>fixed-flask-app
+</span></code></pre></div>
+<p>Test again:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#tasks-dockerdebug-__codelineno-15-1"></a>curl<span class="w"> </span>http://localhost:5000
+</span></code></pre></div>
+<h3 id="tasks-dockerdebug-9-cleanup">9. Cleanup<a class="headerlink" href="#tasks-dockerdebug-9-cleanup" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#tasks-dockerdebug-__codelineno-16-1"></a>docker<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>flask-debug<span class="w">  </span><span class="c1"># If you created it without --rm</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#tasks-dockerdebug-__codelineno-16-2"></a>docker<span class="w"> </span>image<span class="w"> </span>rm<span class="w"> </span>broken-flask-app<span class="w"> </span>fixed-flask-app
+</span></code></pre></div>
+<h2 id="tasks-dockerdebug-key-debugging-techniques-demonstrated">Key Debugging Techniques Demonstrated<a class="headerlink" href="#tasks-dockerdebug-key-debugging-techniques-demonstrated" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Container Logs:</strong> <code>docker logs &lt;container&gt;</code> - View stdout/stderr from crashed containers</li>
+<li><strong>Entrypoint Override:</strong> <code>docker run --entrypoint /bin/sh</code> - Start a shell instead of the app</li>
+<li><strong>Interactive Exploration:</strong> <code>docker run -it</code> - Explore the container filesystem</li>
+<li><strong>Volume Mounting:</strong> <code>-v</code> flag - Test fixes without rebuilding</li>
+<li><strong>Container Inspection:</strong> <code>docker inspect &lt;container&gt;</code> - View full container config</li>
+<li><strong>Process Monitoring:</strong> <code>docker top &lt;container&gt;</code> - See running processes (if container stays up)</li>
+</ol>
+<h2 id="tasks-dockerdebug-common-docker-debugging-commands-reference">Common Docker Debugging Commands Reference<a class="headerlink" href="#tasks-dockerdebug-common-docker-debugging-commands-reference" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#tasks-dockerdebug-__codelineno-17-1"></a><span class="c1"># View logs from a stopped container</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#tasks-dockerdebug-__codelineno-17-2"></a>docker<span class="w"> </span>logs<span class="w"> </span>&lt;container&gt;
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#tasks-dockerdebug-__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#tasks-dockerdebug-__codelineno-17-4"></a><span class="c1"># Start container with shell access</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#tasks-dockerdebug-__codelineno-17-5"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-it<span class="w"> </span>--entrypoint<span class="w"> </span>/bin/sh<span class="w"> </span>&lt;image&gt;
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#tasks-dockerdebug-__codelineno-17-6"></a>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#tasks-dockerdebug-__codelineno-17-7"></a><span class="c1"># Execute command in running container</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#tasks-dockerdebug-__codelineno-17-8"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container&gt;<span class="w"> </span>/bin/sh
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#tasks-dockerdebug-__codelineno-17-9"></a>
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#tasks-dockerdebug-__codelineno-17-10"></a><span class="c1"># Inspect container configuration</span>
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#tasks-dockerdebug-__codelineno-17-11"></a>docker<span class="w"> </span>inspect<span class="w"> </span>&lt;container&gt;
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#tasks-dockerdebug-__codelineno-17-12"></a>
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#tasks-dockerdebug-__codelineno-17-13"></a><span class="c1"># View container filesystem changes</span>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#tasks-dockerdebug-__codelineno-17-14"></a>docker<span class="w"> </span>diff<span class="w"> </span>&lt;container&gt;
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#tasks-dockerdebug-__codelineno-17-15"></a>
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16" href="#tasks-dockerdebug-__codelineno-17-16"></a><span class="c1"># Copy files from container to host</span>
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17" href="#tasks-dockerdebug-__codelineno-17-17"></a>docker<span class="w"> </span>cp<span class="w"> </span>&lt;container&gt;:/path/to/file<span class="w"> </span>./local-path
+</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18" href="#tasks-dockerdebug-__codelineno-17-18"></a>
+</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19" href="#tasks-dockerdebug-__codelineno-17-19"></a><span class="c1"># View container resource usage</span>
+</span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20" href="#tasks-dockerdebug-__codelineno-17-20"></a>docker<span class="w"> </span>stats<span class="w"> </span>&lt;container&gt;
+</span><span id="__span-17-21"><a id="__codelineno-17-21" name="__codelineno-17-21" href="#tasks-dockerdebug-__codelineno-17-21"></a>
+</span><span id="__span-17-22"><a id="__codelineno-17-22" name="__codelineno-17-22" href="#tasks-dockerdebug-__codelineno-17-22"></a><span class="c1"># See running processes</span>
+</span><span id="__span-17-23"><a id="__codelineno-17-23" name="__codelineno-17-23" href="#tasks-dockerdebug-__codelineno-17-23"></a>docker<span class="w"> </span>top<span class="w"> </span>&lt;container&gt;
+</span></code></pre></div>
+</details></section><section class="print-page" id="tasks-dockerfileadvanced" heading-number="2.5"><h1 id="tasks-dockerfileadvanced-in-class-exercise-parameterized-nodejs-time-server">In-Class Exercise - Parameterized Node.js Time Server<a class="headerlink" href="#tasks-dockerfileadvanced-in-class-exercise-parameterized-nodejs-time-server" title="Permanent link">&para;</a></h1>
 <p><img alt="DockerLabs Banner" src="../assets/images/docker-logos.png" /></p>
 <hr />
 <p>Build a lightweight Node.js web server image that prints the current time and listens on a build-time configurable port.</p>
@@ -2270,7 +2468,7 @@ Expected output:
 <p>Expected response:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#tasks-dockerfileadvanced-__codelineno-5-1"></a>Current time: 2025-10-26T12:34:56.789Z
 </span></code></pre></div>
-</details></section><section class="print-page" id="tasks-multistage" heading-number="2.5"><p><img alt="DockerLabs Banner" src="../assets/images/docker-logos.png" /></p>
+</details></section><section class="print-page" id="tasks-multistage" heading-number="2.6"><p><img alt="DockerLabs Banner" src="../assets/images/docker-logos.png" /></p>
 <hr />
 <h1 id="tasks-multistage-in-class-exercise-multi-stage-dockerfile">In-Class Exercise - Multi-Stage Dockerfile<a class="headerlink" href="#tasks-multistage-in-class-exercise-multi-stage-dockerfile" title="Permanent link">&para;</a></h1>
 <ul>
@@ -2354,14 +2552,19 @@ Expected output:
                 .print-site-enumerate-headings #tasks-dockercommit h2:before { content: '2.3.' counter(counter-tasks-dockercommit-2) ' ' }
                 .print-site-enumerate-headings #tasks-dockercommit h2 {  counter-increment: counter-tasks-dockercommit-2 }
             
-.print-site-enumerate-headings #tasks-dockerfileadvanced > h1:before { content: '2.4 ' }
+.print-site-enumerate-headings #tasks-dockerdebug > h1:before { content: '2.4 ' }
 
-                .print-site-enumerate-headings #tasks-dockerfileadvanced h2:before { content: '2.4.' counter(counter-tasks-dockerfileadvanced-2) ' ' }
+                .print-site-enumerate-headings #tasks-dockerdebug h2:before { content: '2.4.' counter(counter-tasks-dockerdebug-2) ' ' }
+                .print-site-enumerate-headings #tasks-dockerdebug h2 {  counter-increment: counter-tasks-dockerdebug-2 }
+            
+.print-site-enumerate-headings #tasks-dockerfileadvanced > h1:before { content: '2.5 ' }
+
+                .print-site-enumerate-headings #tasks-dockerfileadvanced h2:before { content: '2.5.' counter(counter-tasks-dockerfileadvanced-2) ' ' }
                 .print-site-enumerate-headings #tasks-dockerfileadvanced h2 {  counter-increment: counter-tasks-dockerfileadvanced-2 }
             
-.print-site-enumerate-headings #tasks-multistage > h1:before { content: '2.5 ' }
+.print-site-enumerate-headings #tasks-multistage > h1:before { content: '2.6 ' }
 
-                .print-site-enumerate-headings #tasks-multistage h2:before { content: '2.5.' counter(counter-tasks-multistage-2) ' ' }
+                .print-site-enumerate-headings #tasks-multistage h2:before { content: '2.6.' counter(counter-tasks-multistage-2) ' ' }
                 .print-site-enumerate-headings #tasks-multistage h2 {  counter-increment: counter-tasks-multistage-2 }
             </style>
 <!--
