@@ -538,6 +538,8 @@
       
         
       
+        
+      
     
     
     
@@ -2027,6 +2029,10 @@ Expected output:
 <td>In-class exercise for capturing container changes with <code>docker commit</code>.</td>
 </tr>
 <tr>
+<td><a href="#tasks-dockerfileadvanced">DockerfileAdvanced</a></td>
+<td>Advanced Dockerfile exercise covering BuildKit secrets, caching, and health checks.</td>
+</tr>
+<tr>
 <td><a href="#tasks-dockerlogs">DockerLogs</a></td>
 <td>In-class exercise for running cowsay container, managing logs, and debugging.</td>
 </tr>
@@ -2189,7 +2195,82 @@ Expected output:
 <li><strong>docker run &ndash;rm new-image cat file</strong>: Launches the new image, verifies the persistent file, and removes the container when done</li>
 <li><strong>Cleanup commands</strong>: Remove the temporary container and image to free resources</li>
 </ul>
-</details></section><section class="print-page" id="tasks-multistage" heading-number="2.4"><p><img alt="DockerLabs Banner" src="../assets/images/docker-logos.png" /></p>
+</details></section><section class="print-page" id="tasks-dockerfileadvanced" heading-number="2.4"><h1 id="tasks-dockerfileadvanced-in-class-exercise-parameterized-nodejs-time-server">In-Class Exercise - Parameterized Node.js Time Server<a class="headerlink" href="#tasks-dockerfileadvanced-in-class-exercise-parameterized-nodejs-time-server" title="Permanent link">&para;</a></h1>
+<p><img alt="DockerLabs Banner" src="../assets/images/docker-logos.png" /></p>
+<hr />
+<p>Build a lightweight Node.js web server image that prints the current time and listens on a build-time configurable port.</p>
+<h2 id="tasks-dockerfileadvanced-task-checklist">Task Checklist<a class="headerlink" href="#tasks-dockerfileadvanced-task-checklist" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Use the minimal Node.js HTTP server (<code>server.js</code>) in the task folder.</li>
+<li>Use a Docker build argument to set the port value (<code>LISTEN_PORT</code>) and use it in the DockerFile</li>
+<li>Verify that the container print the message when it called</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Requirements &amp;&amp; Tips</p>
+<ul>
+<li><code>docker build</code> accepts <code>--build-arg LISTEN_PORT=&lt;port&gt;</code> and succeeds without manual edits</li>
+<li>Running the image with <code>docker run --rm -p &lt;port&gt;:&lt;port&gt;</code> serves the current time on the chosen port</li>
+<li>Changing <code>LISTEN_PORT</code> during build changes both the exposed port in the image metadata and the runtime listener</li>
+<li>The container process logs which port it is using when it starts</li>
+<li>Use <code>ARG</code> in the Dockerfile to capture the build-time value and <code>ENV</code> to pass it to the Node.js process</li>
+<li>Always bind to <code>0.0.0.0</code> so Docker can forward traffic into the container</li>
+<li>A <code>curl</code> request or <code>docker run --rm image curl http://localhost:&lt;port&gt;</code> is a quick way to verify the response</li>
+</ul>
+</div>
+<div class="admonition bug">
+<p class="admonition-title">Additional Task</p>
+<ul>
+<li>Once you have completed the task, change the port and test it again to ensure the server responds on the new port.</li>
+</ul>
+</div>
+<details>
+<summary>Solution</summary>
+<h3 id="tasks-dockerfileadvanced-1-project-files">1. Project Files<a class="headerlink" href="#tasks-dockerfileadvanced-1-project-files" title="Permanent link">&para;</a></h3>
+<p><code>server.js</code></p>
+<div class="language-javascript highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#tasks-dockerfileadvanced-__codelineno-0-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">http</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;http&quot;</span><span class="p">);</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#tasks-dockerfileadvanced-__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#tasks-dockerfileadvanced-__codelineno-0-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">requestedPort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">LISTEN_PORT</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s2">&quot;8080&quot;</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">);</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#tasks-dockerfileadvanced-__codelineno-0-4"></a><span class="kd">const</span><span class="w"> </span><span class="nx">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Number</span><span class="p">.</span><span class="nb">isNaN</span><span class="p">(</span><span class="nx">requestedPort</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mf">8080</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="nx">requestedPort</span><span class="p">;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#tasks-dockerfileadvanced-__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#tasks-dockerfileadvanced-__codelineno-0-6"></a><span class="kd">const</span><span class="w"> </span><span class="nx">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">((</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#tasks-dockerfileadvanced-__codelineno-0-7"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`Current time: </span><span class="si">${</span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">().</span><span class="nx">toISOString</span><span class="p">()</span><span class="si">}</span><span class="sb">\n`</span><span class="p">;</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#tasks-dockerfileadvanced-__codelineno-0-8"></a><span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;Content-Type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;text/plain&quot;</span><span class="w"> </span><span class="p">});</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#tasks-dockerfileadvanced-__codelineno-0-9"></a><span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#tasks-dockerfileadvanced-__codelineno-0-10"></a><span class="p">});</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#tasks-dockerfileadvanced-__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#tasks-dockerfileadvanced-__codelineno-0-12"></a><span class="nx">server</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">port</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#tasks-dockerfileadvanced-__codelineno-0-13"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Listening on port </span><span class="si">${</span><span class="nx">port</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#tasks-dockerfileadvanced-__codelineno-0-14"></a><span class="p">});</span>
+</span></code></pre></div>
+<p><code>Dockerfile</code></p>
+<div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#tasks-dockerfileadvanced-__codelineno-1-1"></a><span class="c"># syntax=docker/dockerfile:1</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#tasks-dockerfileadvanced-__codelineno-1-2"></a><span class="k">FROM</span><span class="w"> </span><span class="s">node:20-alpine</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#tasks-dockerfileadvanced-__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#tasks-dockerfileadvanced-__codelineno-1-4"></a><span class="k">ARG</span><span class="w"> </span><span class="nv">LISTEN_PORT</span><span class="o">=</span><span class="m">8080</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#tasks-dockerfileadvanced-__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#tasks-dockerfileadvanced-__codelineno-1-6"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/usr/src/app</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#tasks-dockerfileadvanced-__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#tasks-dockerfileadvanced-__codelineno-1-8"></a><span class="k">COPY</span><span class="w"> </span>server.js<span class="w"> </span>./
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#tasks-dockerfileadvanced-__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#tasks-dockerfileadvanced-__codelineno-1-10"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">LISTEN_PORT</span><span class="o">=</span><span class="si">${</span><span class="nv">LISTEN_PORT</span><span class="si">}</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#tasks-dockerfileadvanced-__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#tasks-dockerfileadvanced-__codelineno-1-12"></a><span class="k">EXPOSE</span><span class="w"> </span><span class="s">${LISTEN_PORT}</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#tasks-dockerfileadvanced-__codelineno-1-13"></a>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#tasks-dockerfileadvanced-__codelineno-1-14"></a><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;node&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;server.js&quot;</span><span class="p">]</span>
+</span></code></pre></div>
+<h3 id="tasks-dockerfileadvanced-2-build-the-image">2. Build the Image<a class="headerlink" href="#tasks-dockerfileadvanced-2-build-the-image" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#tasks-dockerfileadvanced-__codelineno-2-1"></a>docker<span class="w"> </span>build<span class="w"> </span>--build-arg<span class="w"> </span><span class="nv">LISTEN_PORT</span><span class="o">=</span><span class="m">9090</span><span class="w"> </span>-t<span class="w"> </span>node-time-server<span class="w"> </span>.
+</span></code></pre></div>
+<h3 id="tasks-dockerfileadvanced-3-run-and-test">3. Run and Test<a class="headerlink" href="#tasks-dockerfileadvanced-3-run-and-test" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#tasks-dockerfileadvanced-__codelineno-3-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-p<span class="w"> </span><span class="m">9090</span>:9090<span class="w"> </span>node-time-server
+</span></code></pre></div>
+<p>In another terminal, verify the output:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#tasks-dockerfileadvanced-__codelineno-4-1"></a>curl<span class="w"> </span>http://localhost:9090
+</span></code></pre></div>
+<p>Expected response:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#tasks-dockerfileadvanced-__codelineno-5-1"></a>Current time: 2025-10-26T12:34:56.789Z
+</span></code></pre></div>
+</details></section><section class="print-page" id="tasks-multistage" heading-number="2.5"><p><img alt="DockerLabs Banner" src="../assets/images/docker-logos.png" /></p>
 <hr />
 <h1 id="tasks-multistage-in-class-exercise-multi-stage-dockerfile">In-Class Exercise - Multi-Stage Dockerfile<a class="headerlink" href="#tasks-multistage-in-class-exercise-multi-stage-dockerfile" title="Permanent link">&para;</a></h1>
 <ul>
@@ -2273,9 +2354,14 @@ Expected output:
                 .print-site-enumerate-headings #tasks-dockercommit h2:before { content: '2.3.' counter(counter-tasks-dockercommit-2) ' ' }
                 .print-site-enumerate-headings #tasks-dockercommit h2 {  counter-increment: counter-tasks-dockercommit-2 }
             
-.print-site-enumerate-headings #tasks-multistage > h1:before { content: '2.4 ' }
+.print-site-enumerate-headings #tasks-dockerfileadvanced > h1:before { content: '2.4 ' }
 
-                .print-site-enumerate-headings #tasks-multistage h2:before { content: '2.4.' counter(counter-tasks-multistage-2) ' ' }
+                .print-site-enumerate-headings #tasks-dockerfileadvanced h2:before { content: '2.4.' counter(counter-tasks-dockerfileadvanced-2) ' ' }
+                .print-site-enumerate-headings #tasks-dockerfileadvanced h2 {  counter-increment: counter-tasks-dockerfileadvanced-2 }
+            
+.print-site-enumerate-headings #tasks-multistage > h1:before { content: '2.5 ' }
+
+                .print-site-enumerate-headings #tasks-multistage h2:before { content: '2.5.' counter(counter-tasks-multistage-2) ' ' }
                 .print-site-enumerate-headings #tasks-multistage h2 {  counter-increment: counter-tasks-multistage-2 }
             </style>
 <!--
