@@ -1,0 +1,13 @@
+# First stage: Alpine image
+FROM alpine AS alpine-stage
+RUN echo "This is alpine image" > alpine.txt
+
+# Second stage: Node image
+FROM node AS node-stage
+RUN echo "This is node image" > node.txt
+
+# Final stage: Alpine with files from previous stages
+FROM alpine
+COPY --from=alpine-stage alpine.txt .
+COPY --from=node-stage node.txt .
+CMD cat alpine.txt && cat node.txt
