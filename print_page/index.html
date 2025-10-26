@@ -22,7 +22,7 @@
     
     
       
-        <title>Print Site - DockerLabs - Docker Hands-On Labs by Nir Geier</title>
+        <title>Print Site - DockerLabs - Docker Hands-On</title>
       
     
     
@@ -137,8 +137,8 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
 
     <!-- Link to home -->
-    <a href=".." title="DockerLabs - Docker Hands-On Labs by Nir Geier"
-      class="md-header__button md-logo" aria-label="DockerLabs - Docker Hands-On Labs by Nir Geier" data-md-component="logo">
+    <a href=".." title="DockerLabs - Docker Hands-On"
+      class="md-header__button md-logo" aria-label="DockerLabs - Docker Hands-On" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89">
@@ -161,7 +161,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            DockerLabs - Docker Hands-On Labs by Nir Geier
+            DockerLabs - Docker Hands-On
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -379,6 +379,28 @@
   
 
       
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Tasks/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Tasks
+
+        </a>
+      </li>
+    
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -409,7 +431,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="DockerLabs - Docker Hands-On Labs by Nir Geier" class="md-nav__button md-logo" aria-label="DockerLabs - Docker Hands-On Labs by Nir Geier" data-md-component="logo">
+    <a href=".." title="DockerLabs - Docker Hands-On" class="md-nav__button md-logo" aria-label="DockerLabs - Docker Hands-On" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89 89">
@@ -420,7 +442,7 @@
 </svg>
 
     </a>
-    DockerLabs - Docker Hands-On Labs by Nir Geier
+    DockerLabs - Docker Hands-On
   </label>
   
     <div class="md-nav__source">
@@ -497,6 +519,66 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../Tasks/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    Tasks
+    
+  </span>
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -526,7 +608,7 @@
                         <h1>Labs<a class='headerlink' href='#section-1' title='Permanent link'></a>
                         </h1>
                     <section class="print-page" id="index" heading-number="1.1"><h1 id="index-dockerlabs-hands-on">DockerLabs Hands-on<a class="headerlink" href="#index-dockerlabs-hands-on" title="Permanent link">&para;</a></h1>
-<p><img alt="DockerLabs Banner" src="/assets/images/docker-logos.png" /></p>
+<p><img alt="DockerLabs Banner" src="../assets/images/docker-logos.png" /></p>
 <hr />
 <ul>
 <li>Welcome to the lab workspace that accompanies the DockerLabs project. </li>
@@ -1680,6 +1762,70 @@
 <li>In a multistage build, you have a <strong>single</strong> Dockerfile which build up multiple images inside it to help build the final image.</li>
 </ul>
 <hr />
+<h2 id="003-dockerfile-multistage-why-use-multistage-builds">Why Use Multistage Builds?<a class="headerlink" href="#003-dockerfile-multistage-why-use-multistage-builds" title="Permanent link">&para;</a></h2>
+<div class="grid cards">
+<ul>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m10.59 12 4-4H11V6h7v7h-2V9.41l-4 4V16h8V4H8v8zM22 2v16H12v4H2V12h4V2zM10 14H4v6h6z"/></svg></span> <strong>Reduce Image Size</strong></p>
+<hr />
+<ul>
+<li>Use a minimal base image for the final stage</li>
+<li>Only copy necessary artifacts to the final image</li>
+<li>Exclude build tools and intermediate files from production image</li>
+</ul>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m10 17-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9m-6-8L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5z"/></svg></span> <strong>Improve Security</strong></p>
+<hr />
+<ul>
+<li>Exclude build tools and secrets from the runtime image</li>
+<li>Limit the attack surface by using a smaller final image</li>
+<li>Use a non-root user in the final stage</li>
+<li>Reduce vulnerabilities by minimizing installed packages</li>
+</ul>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16a3 3 0 0 1-3-3c0-1.12.61-2.1 1.5-2.61l9.71-5.62-5.53 9.58c-.5.98-1.51 1.65-2.68 1.65m0-13c1.81 0 3.5.5 4.97 1.32l-2.1 1.21C14 5.19 13 5 12 5a8 8 0 0 0-8 8c0 2.21.89 4.21 2.34 5.65h.01c.39.39.39 1.02 0 1.41s-1.03.39-1.42.01A9.97 9.97 0 0 1 2 13 10 10 0 0 1 12 3m10 10c0 2.76-1.12 5.26-2.93 7.07-.39.38-1.02.38-1.41-.01a.996.996 0 0 1 0-1.41A7.95 7.95 0 0 0 20 13c0-1-.19-2-.54-2.9L20.67 8C21.5 9.5 22 11.18 22 13"/></svg></span> <strong>Better Build Performance</strong></p>
+<hr />
+<ul>
+<li>Leverage Docker&rsquo;s layer caching mechanism to speed up builds</li>
+<li>Only rebuild stages that have changed</li>
+<li>Each stage can be built and tested independently</li>
+<li>Parallel stage execution when possible</li>
+</ul>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5zM6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m.12 13.5 3.74 3.74 1.42-1.41-2.33-2.33 2.33-2.33-1.42-1.41zm11.16 0-3.74-3.74-1.42 1.41 2.33 2.33-2.33 2.33 1.42 1.41z"/></svg></span> <strong>Cleaner and More Maintainable Dockerfiles</strong></p>
+<hr />
+<ul>
+<li>Separate concerns by using multiple named stages</li>
+<li>No need for manual cleanup of build dependencies</li>
+<li>Easier to read and maintain with clear stage purposes</li>
+<li>Use meaningful stage names for better clarity</li>
+<li>Add comments to explain each stage&rsquo;s role</li>
+</ul>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 10.96a.985.985 0 0 1-.37-1.37L3.13 7c.11-.2.28-.34.47-.42l7.83-4.4c.16-.12.36-.18.57-.18s.41.06.57.18l7.9 4.44c.19.1.35.26.44.46l1.45 2.52c.28.48.11 1.09-.36 1.36l-1 .58v4.96c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18s-.41-.06-.57-.18l-7.9-4.44A.99.99 0 0 1 3 16.5v-5.54c-.3.17-.68.18-1 0m10-6.81v6.7l5.96-3.35zM5 15.91l6 3.38v-6.71L5 9.21zm14 0v-3.22l-5 2.9c-.33.18-.7.17-1 .01v3.69zm-5.15-2.55 6.28-3.63-.58-1.01-6.28 3.63z"/></svg></span> <strong>Flexible Dependency Management</strong></p>
+<hr />
+<ul>
+<li>Install build dependencies in one stage and runtime dependencies in another</li>
+<li>Use different base images optimized for each stage (e.g., <code>golang:alpine</code> for build, <code>alpine</code> for runtime)</li>
+<li>Use the best-suited image for each stage without bloating the final image</li>
+</ul>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 14h-2v2h-6v-3h2v-2h-2V6a2 2 0 0 0-2-2H4V2H2v8h2V8h6v3H8v2h2v5a2 2 0 0 0 2 2h8v2h2"/></svg></span> <strong>Simplified CI/CD Pipelines</strong></p>
+<hr />
+<ul>
+<li>Combine build, test, and deploy stages in a single Dockerfile</li>
+<li>Use <code>--target</code> flag to build specific stages for different environments</li>
+<li>Consistent build process across development and production</li>
+</ul>
+</li>
+</ul>
+</div>
+<hr />
 <h2 id="003-dockerfile-multistage-01-create-multi-stage-docker-file">01. Create multi-stage docker file<a class="headerlink" href="#003-dockerfile-multistage-01-create-multi-stage-docker-file" title="Permanent link">&para;</a></h2>
 <ul>
 <li>The first step is to create a Dockerfile.</li>
@@ -1854,6 +2000,242 @@ Expected output:
 2. **Second Stage (node-stage)**: Based on `node`, creates `node.txt` with the required content
 3. **Final Stage**: Based on `alpine` (lightweight), copies both files from previous stages using `COPY --from=<stage-name>` and displays their content when run
 
+</details></section></section>
+                    <section class='print-page md-section' id='section-2' heading-number='2'>
+                        <h1>Tasks<a class='headerlink' href='#section-2' title='Permanent link'></a>
+                        </h1>
+                    <section class="print-page" id="tasks" heading-number="2.1"><h1 id="tasks-dockerlabs-tasks">DockerLabs Tasks<a class="headerlink" href="#tasks-dockerlabs-tasks" title="Permanent link">&para;</a></h1>
+<p><img alt="DockerLabs Banner" src="../assets/images/docker-logos.png" /></p>
+<hr />
+<ul>
+<li>Welcome to the DockerLabs Tasks section.</li>
+<li>Each folder below contains a hands-on task/exercise that you can complete independently to practice specific Docker skills.</li>
+<li>Follow the README file in each task for detailed instructions and solutions.</li>
+</ul>
+<hr />
+<h2 id="tasks-task-index">Task Index<a class="headerlink" href="#tasks-task-index" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#tasks-dockercommit">DockerCommit</a></td>
+<td>In-class exercise for capturing container changes with <code>docker commit</code>.</td>
+</tr>
+<tr>
+<td><a href="#tasks-dockerlogs">DockerLogs</a></td>
+<td>In-class exercise for running cowsay container, managing logs, and debugging.</td>
+</tr>
+<tr>
+<td><a href="#tasks-multistage">MultiStage</a></td>
+<td>In-class exercise for creating multi-stage Dockerfiles with alpine and node images.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>Happy learning and hacking with Docker!</p></section><section class="print-page" id="tasks-dockerlogs" heading-number="2.2"><p><img alt="DockerLabs Banner" src="../assets/images/docker-logos.png" /></p>
+<hr />
+<h1 id="tasks-dockerlogs-in-class-exercise-docker-logs-and-container-management">In-Class Exercise - Docker Logs and Container Management<a class="headerlink" href="#tasks-dockerlogs-in-class-exercise-docker-logs-and-container-management" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Run a <code>cowsay</code> Docker container with a custom message</li>
+<li>Send a message to the cowsay container (e.g., &ldquo;Hello from Docker!&rdquo;)</li>
+<li>Stop the container after execution</li>
+<li>Extract and save the container logs to the host machine for debugging purposes</li>
+<li>Hint: Use <code>docker run</code>, <code>docker logs</code>, and output redirection</li>
+</ul>
+<details>
+<summary>Solution</summary>
+<h2 id="tasks-dockerlogs-step-by-step-solution">Step-by-Step Solution<a class="headerlink" href="#tasks-dockerlogs-step-by-step-solution" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Run the cowsay container with a custom message</strong></li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#tasks-dockerlogs-__codelineno-0-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>my-cowsay<span class="w"> </span>docker/whalesay<span class="w"> </span>cowsay<span class="w"> </span><span class="s2">&quot;Hello from Docker!&quot;</span>
+</span></code></pre></div>
+<ol>
+<li><strong>Verify the container has stopped</strong></li>
+</ol>
+<p>The container stops automatically after execution. You can verify with:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#tasks-dockerlogs-__codelineno-1-1"></a>docker<span class="w"> </span>ps<span class="w"> </span>-a<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>my-cowsay
+</span></code></pre></div>
+<ol>
+<li><strong>Grab the logs and save to host machine</strong></li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#tasks-dockerlogs-__codelineno-2-1"></a>docker<span class="w"> </span>logs<span class="w"> </span>my-cowsay<span class="w"> </span>&gt;<span class="w"> </span>cowsay-logs.txt
+</span></code></pre></div>
+<ol>
+<li><strong>View the saved logs</strong></li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#tasks-dockerlogs-__codelineno-3-1"></a>cat<span class="w"> </span>cowsay-logs.txt
+</span></code></pre></div>
+<p>Expected output in <code>cowsay-logs.txt</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#tasks-dockerlogs-__codelineno-4-1"></a> ______________________
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#tasks-dockerlogs-__codelineno-4-2"></a>&lt; Hello from Docker! &gt;
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#tasks-dockerlogs-__codelineno-4-3"></a> ----------------------
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#tasks-dockerlogs-__codelineno-4-4"></a>    \
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#tasks-dockerlogs-__codelineno-4-5"></a>     \
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#tasks-dockerlogs-__codelineno-4-6"></a>      \     
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#tasks-dockerlogs-__codelineno-4-7"></a>                    ##        .            
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#tasks-dockerlogs-__codelineno-4-8"></a>              ## ## ##       ==            
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#tasks-dockerlogs-__codelineno-4-9"></a>           ## ## ## ##      ===            
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#tasks-dockerlogs-__codelineno-4-10"></a>       /&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;___/ ===        
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#tasks-dockerlogs-__codelineno-4-11"></a>  ~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~   
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#tasks-dockerlogs-__codelineno-4-12"></a>       \______ o          __/            
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#tasks-dockerlogs-__codelineno-4-13"></a>        \    \        __/             
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#tasks-dockerlogs-__codelineno-4-14"></a>          \____\______/   
+</span></code></pre></div>
+<ol>
+<li><strong>Clean up (optional)</strong></li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#tasks-dockerlogs-__codelineno-5-1"></a><span class="c1"># Remove the container</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#tasks-dockerlogs-__codelineno-5-2"></a>docker<span class="w"> </span>rm<span class="w"> </span>my-cowsay
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#tasks-dockerlogs-__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#tasks-dockerlogs-__codelineno-5-4"></a><span class="c1"># Remove the log file</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#tasks-dockerlogs-__codelineno-5-5"></a>rm<span class="w"> </span>cowsay-logs.txt
+</span></code></pre></div>
+<h2 id="tasks-dockerlogs-alternative-using-a-different-cowsay-image">Alternative: Using a Different Cowsay Image<a class="headerlink" href="#tasks-dockerlogs-alternative-using-a-different-cowsay-image" title="Permanent link">&para;</a></h2>
+<p>If <code>docker/whalesay</code> is not available, you can build your own:</p>
+<p><strong>Dockerfile:</strong></p>
+<div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#tasks-dockerlogs-__codelineno-6-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">alpine:latest</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#tasks-dockerlogs-__codelineno-6-2"></a><span class="k">RUN</span><span class="w"> </span>apk<span class="w"> </span>add<span class="w"> </span>--no-cache<span class="w"> </span>cowsay
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#tasks-dockerlogs-__codelineno-6-3"></a><span class="k">ENTRYPOINT</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/usr/bin/cowsay&quot;</span><span class="p">]</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#tasks-dockerlogs-__codelineno-6-4"></a><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;Hello Docker!&quot;</span><span class="p">]</span>
+</span></code></pre></div>
+<p><strong>Build and run:</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#tasks-dockerlogs-__codelineno-7-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>my-cowsay<span class="w"> </span>.
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#tasks-dockerlogs-__codelineno-7-2"></a>docker<span class="w"> </span>run<span class="w"> </span>--name<span class="w"> </span>cowsay-test<span class="w"> </span>my-cowsay<span class="w"> </span><span class="s2">&quot;Hello from Docker!&quot;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#tasks-dockerlogs-__codelineno-7-3"></a>docker<span class="w"> </span>logs<span class="w"> </span>cowsay-test<span class="w"> </span>&gt;<span class="w"> </span>cowsay-logs.txt
+</span></code></pre></div>
+<h2 id="tasks-dockerlogs-explanation">Explanation<a class="headerlink" href="#tasks-dockerlogs-explanation" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>docker run &ndash;name</strong>: Assigns a name to the container for easy reference</li>
+<li><strong>cowsay &ldquo;message&rdquo;</strong>: Passes the message to the cowsay command</li>
+<li><strong>docker logs</strong>: Retrieves all stdout/stderr output from the container</li>
+<li><strong>&gt; cowsay-logs.txt</strong>: Redirects the log output to a file on the host machine</li>
+<li>The container stops automatically after the command completes</li>
+</ul>
+<h2 id="tasks-dockerlogs-bonus-running-in-detached-mode">Bonus: Running in Detached Mode<a class="headerlink" href="#tasks-dockerlogs-bonus-running-in-detached-mode" title="Permanent link">&para;</a></h2>
+<p>For containers that run longer:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#tasks-dockerlogs-__codelineno-8-1"></a><span class="c1"># Run in detached mode</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#tasks-dockerlogs-__codelineno-8-2"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>my-cowsay-bg<span class="w"> </span>docker/whalesay<span class="w"> </span>/bin/sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;cowsay &#39;Background task&#39; &amp;&amp; sleep 30&quot;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#tasks-dockerlogs-__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#tasks-dockerlogs-__codelineno-8-4"></a><span class="c1"># Get logs while running</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#tasks-dockerlogs-__codelineno-8-5"></a>docker<span class="w"> </span>logs<span class="w"> </span>my-cowsay-bg
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#tasks-dockerlogs-__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#tasks-dockerlogs-__codelineno-8-7"></a><span class="c1"># Follow logs in real-time</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#tasks-dockerlogs-__codelineno-8-8"></a>docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </span>my-cowsay-bg
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#tasks-dockerlogs-__codelineno-8-9"></a>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#tasks-dockerlogs-__codelineno-8-10"></a><span class="c1"># Stop the container</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#tasks-dockerlogs-__codelineno-8-11"></a>docker<span class="w"> </span>stop<span class="w"> </span>my-cowsay-bg
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#tasks-dockerlogs-__codelineno-8-12"></a>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#tasks-dockerlogs-__codelineno-8-13"></a><span class="c1"># Save logs after stopping</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#tasks-dockerlogs-__codelineno-8-14"></a>docker<span class="w"> </span>logs<span class="w"> </span>my-cowsay-bg<span class="w"> </span>&gt;<span class="w"> </span>cowsay-bg-logs.txt
+</span></code></pre></div>
+</details></section><section class="print-page" id="tasks-dockercommit" heading-number="2.3"><p><img alt="DockerLabs Banner" src="../assets/images/docker-logos.png" /></p>
+<hr />
+<h1 id="tasks-dockercommit-in-class-exercise-docker-commit-workflow">In-Class Exercise - Docker Commit Workflow<a class="headerlink" href="#tasks-dockercommit-in-class-exercise-docker-commit-workflow" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Start an <code>alpine</code> container and keep it running for modifications</li>
+<li>Create a new file inside the running container</li>
+<li>Use <code>docker commit</code> to capture a new image with the file included</li>
+<li>Run a container from the committed image and verify the file exists</li>
+<li>Hint: Combine <code>docker run</code>, <code>docker exec</code>, <code>docker commit</code>, and <code>docker run --rm</code></li>
+</ul>
+<details>
+<summary>Solution</summary>
+<h2 id="tasks-dockercommit-step-by-step-solution">Step-by-Step Solution<a class="headerlink" href="#tasks-dockercommit-step-by-step-solution" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Run a modifiable alpine container</strong></li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#tasks-dockercommit-__codelineno-0-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>alpine-commit<span class="w"> </span>alpine:latest<span class="w"> </span>sleep<span class="w"> </span>infinity
+</span></code></pre></div>
+<ol>
+<li><strong>Write a file inside the running container</strong></li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#tasks-dockercommit-__codelineno-1-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>alpine-commit<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;echo &#39;Persisted with docker commit&#39; &gt; /opt/commit-note.txt&quot;</span>
+</span></code></pre></div>
+<ol>
+<li><strong>Validate the file inside the original container (optional check)</strong></li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#tasks-dockercommit-__codelineno-2-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>alpine-commit<span class="w"> </span>cat<span class="w"> </span>/opt/commit-note.txt
+</span></code></pre></div>
+<ol>
+<li><strong>Create a new image from the modified container</strong></li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#tasks-dockercommit-__codelineno-3-1"></a>docker<span class="w"> </span>commit<span class="w"> </span>alpine-commit<span class="w"> </span>alpine-with-note:latest
+</span></code></pre></div>
+<ol>
+<li><strong>Run a container from the committed image and verify the file exists</strong></li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#tasks-dockercommit-__codelineno-4-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>alpine-with-note:latest<span class="w"> </span>cat<span class="w"> </span>/opt/commit-note.txt
+</span></code></pre></div>
+<p>Expected output:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#tasks-dockercommit-__codelineno-5-1"></a>Persisted with docker commit
+</span></code></pre></div>
+<ol>
+<li><strong>Clean up resources</strong></li>
+</ol>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#tasks-dockercommit-__codelineno-6-1"></a>docker<span class="w"> </span>rm<span class="w"> </span>-f<span class="w"> </span>alpine-commit
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#tasks-dockercommit-__codelineno-6-2"></a>docker<span class="w"> </span>image<span class="w"> </span>rm<span class="w"> </span>alpine-with-note:latest
+</span></code></pre></div>
+<h2 id="tasks-dockercommit-explanation">Explanation<a class="headerlink" href="#tasks-dockercommit-explanation" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>docker run -d &hellip; sleep infinity</strong>: Starts a container that stays alive for edits</li>
+<li><strong>docker exec &hellip; echo &lsquo;&hellip;&rsquo; &gt; file</strong>: Writes a file into the running container</li>
+<li><strong>docker commit</strong>: Captures the container&rsquo;s filesystem changes into a new image</li>
+<li><strong>docker run &ndash;rm new-image cat file</strong>: Launches the new image, verifies the persistent file, and removes the container when done</li>
+<li><strong>Cleanup commands</strong>: Remove the temporary container and image to free resources</li>
+</ul>
+</details></section><section class="print-page" id="tasks-multistage" heading-number="2.4"><p><img alt="DockerLabs Banner" src="../assets/images/docker-logos.png" /></p>
+<hr />
+<h1 id="tasks-multistage-in-class-exercise-multi-stage-dockerfile">In-Class Exercise - Multi-Stage Dockerfile<a class="headerlink" href="#tasks-multistage-in-class-exercise-multi-stage-dockerfile" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Create a <code>multi-stage</code> docker file that will build 2 images</li>
+<li>The first image will be based on <code>alpine</code> and will create a file named <code>alpine.txt</code> with the content: <code>This is alpine image</code></li>
+<li>The second image will be based on <code>node</code> and will create a file named <code>node.txt</code> with the content: <code>This is node image</code></li>
+<li>The final image should be based on <code>alpine</code> and should copy the files which you created from the previous stages and display their content when the container will run.</li>
+<li>Hint: Use the <code>COPY --from=</code> command to copy files from previous stages</li>
+</ul>
+<details>
+<summary>Solution</summary>
+<h3 id="tasks-multistage-dockerfile-solution">Dockerfile Solution<a class="headerlink" href="#tasks-multistage-dockerfile-solution" title="Permanent link">&para;</a></h3>
+<p>Create a file named <code>Dockerfile-exercise</code>:</p>
+<div class="language-dockerfile highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#tasks-multistage-__codelineno-0-1"></a><span class="c"># First stage: Alpine image</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#tasks-multistage-__codelineno-0-2"></a><span class="k">FROM</span><span class="w">  </span><span class="s">alpine</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">alpine-stage</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#tasks-multistage-__codelineno-0-3"></a><span class="k">RUN</span><span class="w">   </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;This is alpine image&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>alpine.txt
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#tasks-multistage-__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#tasks-multistage-__codelineno-0-5"></a><span class="c"># Second stage: Node image</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#tasks-multistage-__codelineno-0-6"></a><span class="k">FROM</span><span class="w">  </span><span class="s">node</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">node-stage</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#tasks-multistage-__codelineno-0-7"></a><span class="k">RUN</span><span class="w">   </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;This is node image&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>node.txt
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#tasks-multistage-__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#tasks-multistage-__codelineno-0-9"></a><span class="c"># Final stage: Alpine with files from previous stages</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#tasks-multistage-__codelineno-0-10"></a><span class="k">FROM</span><span class="w">  </span><span class="s">alpine</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#tasks-multistage-__codelineno-0-11"></a><span class="k">COPY</span><span class="w">  </span>--from<span class="o">=</span>alpine-stage<span class="w"> </span>alpine.txt<span class="w">  </span>.
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#tasks-multistage-__codelineno-0-12"></a><span class="k">COPY</span><span class="w">  </span>--from<span class="o">=</span>node-stage<span class="w"> </span>node.txt<span class="w">      </span>.
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#tasks-multistage-__codelineno-0-13"></a>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#tasks-multistage-__codelineno-0-14"></a><span class="c"># Run the command to display contents</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#tasks-multistage-__codelineno-0-15"></a><span class="k">CMD</span><span class="w">   </span>cat<span class="w"> </span>alpine.txt<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>cat<span class="w"> </span>node.txt
+</span></code></pre></div>
+<h3 id="tasks-multistage-build-and-test">Build and Test<a class="headerlink" href="#tasks-multistage-build-and-test" title="Permanent link">&para;</a></h3>
+<p>Build the image:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#tasks-multistage-__codelineno-1-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-f<span class="w"> </span>Dockerfile-exercise<span class="w"> </span>-t<span class="w"> </span>exercise-solution<span class="w"> </span>.
+</span></code></pre></div>
+<p>Run the container:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#tasks-multistage-__codelineno-2-1"></a>docker<span class="w"> </span>run<span class="w"> </span>exercise-solution
+</span></code></pre></div>
+<p>Expected output:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#tasks-multistage-__codelineno-3-1"></a>This is alpine image
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#tasks-multistage-__codelineno-3-2"></a>This is node image
+</span></code></pre></div>
+<h3 id="tasks-multistage-explanation">Explanation<a class="headerlink" href="#tasks-multistage-explanation" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>First Stage (alpine-stage)</strong>: Based on <code>alpine</code>, creates <code>alpine.txt</code> with the required content</li>
+<li><strong>Second Stage (node-stage)</strong>: Based on <code>node</code>, creates <code>node.txt</code> with the required content</li>
+<li><strong>Final Stage</strong>: Based on <code>alpine</code> (lightweight), copies both files from previous stages using <code>COPY --from=&lt;stage-name&gt;</code> and displays their content when run</li>
+</ol>
 </details></section></section></div><style>.print-site-enumerate-headings #section-1 > h1:before { content: '1 ' }
 .print-site-enumerate-headings #index > h1:before { content: '1.1 ' }
 
@@ -1874,6 +2256,27 @@ Expected output:
 
                 .print-site-enumerate-headings #003-dockerfile-multistage h2:before { content: '1.4.' counter(counter-003-dockerfile-multistage-2) ' ' }
                 .print-site-enumerate-headings #003-dockerfile-multistage h2 {  counter-increment: counter-003-dockerfile-multistage-2 }
+            
+.print-site-enumerate-headings #section-2 > h1:before { content: '2 ' }
+.print-site-enumerate-headings #tasks > h1:before { content: '2.1 ' }
+
+                .print-site-enumerate-headings #tasks h2:before { content: '2.1.' counter(counter-tasks-2) ' ' }
+                .print-site-enumerate-headings #tasks h2 {  counter-increment: counter-tasks-2 }
+            
+.print-site-enumerate-headings #tasks-dockerlogs > h1:before { content: '2.2 ' }
+
+                .print-site-enumerate-headings #tasks-dockerlogs h2:before { content: '2.2.' counter(counter-tasks-dockerlogs-2) ' ' }
+                .print-site-enumerate-headings #tasks-dockerlogs h2 {  counter-increment: counter-tasks-dockerlogs-2 }
+            
+.print-site-enumerate-headings #tasks-dockercommit > h1:before { content: '2.3 ' }
+
+                .print-site-enumerate-headings #tasks-dockercommit h2:before { content: '2.3.' counter(counter-tasks-dockercommit-2) ' ' }
+                .print-site-enumerate-headings #tasks-dockercommit h2 {  counter-increment: counter-tasks-dockercommit-2 }
+            
+.print-site-enumerate-headings #tasks-multistage > h1:before { content: '2.4 ' }
+
+                .print-site-enumerate-headings #tasks-multistage h2:before { content: '2.4.' counter(counter-tasks-multistage-2) ' ' }
+                .print-site-enumerate-headings #tasks-multistage h2 {  counter-increment: counter-tasks-multistage-2 }
             </style>
 <!--
   Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>

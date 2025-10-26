@@ -52,4 +52,20 @@
          <loc>https://nirgeier.github.io/DockerLabs/100-Hands-On/</loc>
          <lastmod>2025-10-26</lastmod>
     </url>
+    <url>
+         <loc>https://nirgeier.github.io/DockerLabs/Tasks/</loc>
+         <lastmod>2025-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://nirgeier.github.io/DockerLabs/Tasks/DockerCommit/</loc>
+         <lastmod>2025-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://nirgeier.github.io/DockerLabs/Tasks/DockerLogs/</loc>
+         <lastmod>2025-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://nirgeier.github.io/DockerLabs/Tasks/MultiStage/</loc>
+         <lastmod>2025-10-26</lastmod>
+    </url>
 </urlset>
