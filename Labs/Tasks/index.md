@@ -15,6 +15,7 @@
 | Task | Description |
 | --- | --- |
 | [DockerCommit](DockerCommit/) | In-class exercise for capturing container changes with `docker commit`. |
+| [DockerDebug](DockerDebug/) | Debugging challenge: troubleshoot a crashing Flask container and fix missing configurations. |
 | [DockerfileAdvanced](DockerfileAdvanced/) | Advanced Dockerfile exercise covering BuildKit secrets, caching, and health checks. |
 | [DockerLogs](DockerLogs/) | In-class exercise for running cowsay container, managing logs, and debugging. |
 | [MultiStage](MultiStage/) | In-class exercise for creating multi-stage Dockerfiles with alpine and node images. |

@@ -69,6 +69,7 @@ nav:
       - Tasks/index.md
       - DockerLogs: Tasks/DockerLogs/README.md
       - DockerCommit: Tasks/DockerCommit/README.md
+      - DockerDebug: Tasks/DockerDebug/README.md
       - DockerfileAdvanced: Tasks/DockerfileAdvanced/README.md
       - MultiStage: Tasks/MultiStage/README.md
 ###
