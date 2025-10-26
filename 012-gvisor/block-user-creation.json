@@ -1,0 +1,15 @@
+{
+  "defaultAction": "SCMP_ACT_ALLOW",
+  "syscalls": [
+    {
+      "names": [
+        "setuid",
+        "setgid",
+        "setgroups",
+        "setreuid",
+        "setregid"
+      ],
+      "action": "SCMP_ACT_ERRNO"
+    }
+  ]
+}

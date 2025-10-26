@@ -1,0 +1,5296 @@
+{
+  "layer": [
+    {
+      "index": 0,
+      "id": "blobs",
+      "digestId": "sha256:a16e98724c05975ee8c40d8fe389c3481373d34ab20a1cf52ea2accc43f71f4c",
+      "sizeBytes": 8169625,
+      "command": "ADD alpine-minirootfs-3.21.3-aarch64.tar.gz / # buildkit",
+      "fileList": [
+        {
+          "path": "bin/arch",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/ash",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/base64",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/bbconfig",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/busybox",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 919304,
+          "fileMode": 493,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/cat",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/chattr",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/chgrp",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/chmod",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/chown",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/cp",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/date",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/dd",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/df",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/dmesg",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/dnsdomainname",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/dumpkmap",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/echo",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/egrep",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/false",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/fatattr",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/fdflush",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/fgrep",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/fsync",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/getopt",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/grep",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/gunzip",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/gzip",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/hostname",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/ionice",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/iostat",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/ipcalc",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/kbd_mode",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/kill",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/link",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/linux32",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/linux64",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/ln",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/login",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/ls",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/lsattr",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/lzop",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/makemime",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/mkdir",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/mknod",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/mktemp",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/more",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/mount",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/mountpoint",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/mpstat",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/mv",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/netstat",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/nice",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/pidof",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/ping",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/ping6",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/pipe_progress",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/printenv",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/ps",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/pwd",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/reformime",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/rev",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/rm",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/rmdir",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/run-parts",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/sed",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/setpriv",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/setserial",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/sh",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/sleep",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/stat",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/stty",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/su",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/sync",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/tar",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/touch",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/true",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/umount",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/uname",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/usleep",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/watch",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin/zcat",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "bin",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "dev",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/alpine-release",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 7,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/apk/arch",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 8,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/apk/keys/alpine-devel@lists.alpinelinux.org-524d27bb.rsa.pub",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 451,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/apk/keys/alpine-devel@lists.alpinelinux.org-58199dcc.rsa.pub",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 451,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/apk/keys/alpine-devel@lists.alpinelinux.org-616a9724.rsa.pub",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 800,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/apk/keys/alpine-devel@lists.alpinelinux.org-616adfeb.rsa.pub",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 800,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/apk/keys/alpine-devel@lists.alpinelinux.org-616ae350.rsa.pub",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 800,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/apk/keys",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/apk/protected_paths.d",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/apk/repositories",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 103,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/apk/world",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 74,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/apk",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/busybox-paths.d/busybox",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 3989,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/busybox-paths.d",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/crontabs/root",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 283,
+          "fileMode": 384,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/crontabs",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/fstab",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 89,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/group",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 510,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/hostname",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 10,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/hosts",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 79,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/inittab",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 570,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/issue",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 54,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/logrotate.d/acpid",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 140,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/logrotate.d",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/modprobe.d/aliases.conf",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 1545,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/modprobe.d/blacklist.conf",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 2136,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/modprobe.d/i386.conf",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 122,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/modprobe.d/kms.conf",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 91,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/modprobe.d",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/modules",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 15,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/modules-load.d",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/motd",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 284,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/mtab",
+          "typeFlag": 50,
+          "linkName": "../proc/mounts",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/network/if-down.d",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/network/if-post-down.d",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/network/if-post-up.d",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/network/if-pre-down.d",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/network/if-pre-up.d",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/network/if-up.d/dad",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 285,
+          "fileMode": 509,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/network/if-up.d",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/network",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/nsswitch.conf",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 205,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/opt",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/os-release",
+          "typeFlag": 50,
+          "linkName": "../usr/lib/os-release",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/passwd",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 702,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/periodic/15min",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/periodic/daily",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/periodic/hourly",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/periodic/monthly",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/periodic/weekly",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/periodic",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/profile",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 547,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/profile.d/20locale.sh",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 97,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/profile.d/README",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 249,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/profile.d/color_prompt.sh.disabled",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 447,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/profile.d",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/protocols",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 3144,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/secfixes.d/alpine",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 97,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/secfixes.d",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/securetty",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 156,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/services",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 12813,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/shadow",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 260,
+          "fileMode": 416,
+          "uid": 0,
+          "gid": 42,
+          "isDir": false
+        },
+        {
+          "path": "etc/shells",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 38,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/ssl/cert.pem",
+          "typeFlag": 50,
+          "linkName": "certs/ca-certificates.crt",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/ssl/certs/ca-certificates.crt",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 222597,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/ssl/certs",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/ssl/ct_log_list.cnf",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 412,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/ssl/ct_log_list.cnf.dist",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 412,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/ssl/openssl.cnf",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 12328,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/ssl/openssl.cnf.dist",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 12328,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/ssl/private",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/ssl",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/ssl1.1/cert.pem",
+          "typeFlag": 50,
+          "linkName": "/etc/ssl/cert.pem",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/ssl1.1/certs",
+          "typeFlag": 50,
+          "linkName": "/etc/ssl/certs",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/ssl1.1",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/sysctl.conf",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 53,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/sysctl.d",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc/udhcpc/udhcpc.conf",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 287,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "etc/udhcpc",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "etc",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "home",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "lib/apk/db/installed",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 14907,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "lib/apk/db/lock",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 384,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "lib/apk/db/scripts.tar",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 10240,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "lib/apk/db/triggers",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 95,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "lib/apk/db",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "lib/apk/exec",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "lib/apk",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "lib/firmware",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "lib/ld-musl-aarch64.so.1",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 723480,
+          "fileMode": 493,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "lib/libc.musl-aarch64.so.1",
+          "typeFlag": 50,
+          "linkName": "ld-musl-aarch64.so.1",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "lib/modules-load.d",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "lib/sysctl.d",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "lib",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "media/cdrom",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "media/floppy",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "media/usb",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "media",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "mnt",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "opt",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "proc",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484013,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "root",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484096,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "run/lock",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "run",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "sbin/acpid",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/adjtimex",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/apk",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 69264,
+          "fileMode": 493,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/arp",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/blkid",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/blockdev",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/depmod",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/fbsplash",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/fdisk",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/findfs",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/fsck",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/fstrim",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/getty",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/halt",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/hwclock",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/ifconfig",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/ifdown",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/ifenslave",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/ifup",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/init",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/inotifyd",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/insmod",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/ip",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/ipaddr",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/iplink",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/ipneigh",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/iproute",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/iprule",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/iptunnel",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/klogd",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/ldconfig",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 393,
+          "fileMode": 493,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/loadkmap",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/logread",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/losetup",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/lsmod",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/mdev",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/mkdosfs",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/mkfs.vfat",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/mkswap",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/modinfo",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/modprobe",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/nameif",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/nologin",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/pivot_root",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/poweroff",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/raidautorun",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/reboot",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/rmmod",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/route",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/setconsole",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/slattach",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/swapoff",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/swapon",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/switch_root",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/sysctl",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/syslogd",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/tunctl",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/udhcpc",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/vconfig",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/watchdog",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin/zcip",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "sbin",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "srv",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "sys",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "tmp",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2148532735,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "usr/bin/[",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/[[",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/awk",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/basename",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/bc",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/beep",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/blkdiscard",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/bunzip2",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/bzcat",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/bzip2",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/cal",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/chvt",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/cksum",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/clear",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/cmp",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/comm",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/cpio",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/crontab",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/cryptpw",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/cut",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/dc",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/deallocvt",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/diff",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/dirname",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/dos2unix",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/du",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/eject",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/env",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/expand",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/expr",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/factor",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/fallocate",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/find",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/flock",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/fold",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/free",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/fuser",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/getconf",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 81808,
+          "fileMode": 493,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/getent",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 95344,
+          "fileMode": 493,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/groups",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/hd",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/head",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/hexdump",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/hostid",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/iconv",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 78952,
+          "fileMode": 493,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/id",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/install",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/ipcrm",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/ipcs",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/killall",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/last",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/ldd",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 53,
+          "fileMode": 493,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/less",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/logger",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/lsof",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/lsusb",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/lzcat",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/lzma",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/lzopcat",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/md5sum",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/mesg",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/microcom",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/mkfifo",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/mkpasswd",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/nc",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/nl",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/nmeter",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/nohup",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/nproc",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/nsenter",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/nslookup",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/od",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/openvt",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/passwd",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/paste",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/pgrep",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/pkill",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/pmap",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/printf",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/pscan",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/pstree",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/pwdx",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/readlink",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/realpath",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/renice",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/reset",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/resize",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/scanelf",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 67424,
+          "fileMode": 493,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/seq",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/setkeycodes",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/setsid",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/sha1sum",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/sha256sum",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/sha3sum",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/sha512sum",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/showkey",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/shred",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/shuf",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/sort",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/split",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/ssl_client",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 67472,
+          "fileMode": 493,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/strings",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/sum",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/tac",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/tail",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/tee",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/test",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/time",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/timeout",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/top",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/tr",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/traceroute",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/traceroute6",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/tree",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/truncate",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/tty",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/ttysize",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/udhcpc6",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/unexpand",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/uniq",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/unix2dos",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/unlink",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/unlzma",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/unlzop",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/unshare",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/unxz",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/unzip",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/uptime",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/uudecode",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/uuencode",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/vi",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/vlock",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/volname",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/wc",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/wget",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/which",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/who",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/whoami",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/whois",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/xargs",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/xxd",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/xzcat",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin/yes",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/bin",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "usr/lib/engines-3/afalg.so",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 67680,
+          "fileMode": 493,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/lib/engines-3/capi.so",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 67168,
+          "fileMode": 493,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/lib/engines-3/loader_attic.so",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 67952,
+          "fileMode": 493,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/lib/engines-3/padlock.so",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 67168,
+          "fileMode": 493,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/lib/engines-3",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "usr/lib/libapk.so.2.14.0",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 200328,
+          "fileMode": 493,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/lib/libcrypto.so.3",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 4139216,
+          "fileMode": 493,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/lib/libssl.so.3",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 868080,
+          "fileMode": 493,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/lib/libz.so.1",
+          "typeFlag": 50,
+          "linkName": "libz.so.1.3.1",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/lib/libz.so.1.3.1",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 133008,
+          "fileMode": 493,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/lib/modules-load.d",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "usr/lib/os-release",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 188,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/lib/ossl-modules/legacy.so",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 133008,
+          "fileMode": 493,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/lib/ossl-modules",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "usr/lib/sysctl.d/00-alpine.conf",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 1278,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/lib/sysctl.d",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "usr/lib",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "usr/local/bin",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "usr/local/lib",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "usr/local/share",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "usr/local",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "usr/sbin/add-shell",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/sbin/addgroup",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/sbin/adduser",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/sbin/arping",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/sbin/brctl",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/sbin/chpasswd",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/sbin/chroot",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/sbin/crond",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/sbin/delgroup",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/sbin/deluser",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/sbin/ether-wake",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/sbin/fbset",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/sbin/killall5",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/sbin/loadfont",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/sbin/nanddump",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/sbin/nandwrite",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/sbin/nbd-client",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/sbin/ntpd",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/sbin/partprobe",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/sbin/rdate",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/sbin/rdev",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/sbin/readahead",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/sbin/remove-shell",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/sbin/rfkill",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/sbin/sendmail",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/sbin/setfont",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/sbin/setlogcons",
+          "typeFlag": 50,
+          "linkName": "/bin/busybox",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/sbin",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "usr/share/apk/keys/aarch64/alpine-devel@lists.alpinelinux.org-58199dcc.rsa.pub",
+          "typeFlag": 50,
+          "linkName": "../alpine-devel@lists.alpinelinux.org-58199dcc.rsa.pub",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/aarch64/alpine-devel@lists.alpinelinux.org-616ae350.rsa.pub",
+          "typeFlag": 50,
+          "linkName": "../alpine-devel@lists.alpinelinux.org-616ae350.rsa.pub",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/aarch64",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-4a6a0840.rsa.pub",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 451,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-5243ef4b.rsa.pub",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 451,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-524d27bb.rsa.pub",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 451,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-5261cecb.rsa.pub",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 451,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-58199dcc.rsa.pub",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 451,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-58cbb476.rsa.pub",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 451,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-58e4f17d.rsa.pub",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 451,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-5e69ca50.rsa.pub",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 451,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-60ac2099.rsa.pub",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 451,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-6165ee59.rsa.pub",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 800,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-61666e3f.rsa.pub",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 800,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-616a9724.rsa.pub",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 800,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-616abc23.rsa.pub",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 800,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-616ac3bc.rsa.pub",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 800,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-616adfeb.rsa.pub",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 800,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-616ae350.rsa.pub",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 800,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-616db30d.rsa.pub",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 800,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/alpine-devel@lists.alpinelinux.org-66ba20fe.rsa.pub",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 800,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/armhf/alpine-devel@lists.alpinelinux.org-524d27bb.rsa.pub",
+          "typeFlag": 50,
+          "linkName": "../alpine-devel@lists.alpinelinux.org-524d27bb.rsa.pub",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/armhf/alpine-devel@lists.alpinelinux.org-616a9724.rsa.pub",
+          "typeFlag": 50,
+          "linkName": "../alpine-devel@lists.alpinelinux.org-616a9724.rsa.pub",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/armhf",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "usr/share/apk/keys/armv7/alpine-devel@lists.alpinelinux.org-524d27bb.rsa.pub",
+          "typeFlag": 50,
+          "linkName": "../alpine-devel@lists.alpinelinux.org-524d27bb.rsa.pub",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/armv7/alpine-devel@lists.alpinelinux.org-616adfeb.rsa.pub",
+          "typeFlag": 50,
+          "linkName": "../alpine-devel@lists.alpinelinux.org-616adfeb.rsa.pub",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/armv7",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "usr/share/apk/keys/loongarch64/alpine-devel@lists.alpinelinux.org-66ba20fe.rsa.pub",
+          "typeFlag": 50,
+          "linkName": "../alpine-devel@lists.alpinelinux.org-66ba20fe.rsa.pub",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/loongarch64",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "usr/share/apk/keys/mips64/alpine-devel@lists.alpinelinux.org-5e69ca50.rsa.pub",
+          "typeFlag": 50,
+          "linkName": "../alpine-devel@lists.alpinelinux.org-5e69ca50.rsa.pub",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/mips64",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "usr/share/apk/keys/ppc64le/alpine-devel@lists.alpinelinux.org-58cbb476.rsa.pub",
+          "typeFlag": 50,
+          "linkName": "../alpine-devel@lists.alpinelinux.org-58cbb476.rsa.pub",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/ppc64le/alpine-devel@lists.alpinelinux.org-616abc23.rsa.pub",
+          "typeFlag": 50,
+          "linkName": "../alpine-devel@lists.alpinelinux.org-616abc23.rsa.pub",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/ppc64le",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "usr/share/apk/keys/riscv64/alpine-devel@lists.alpinelinux.org-60ac2099.rsa.pub",
+          "typeFlag": 50,
+          "linkName": "../alpine-devel@lists.alpinelinux.org-60ac2099.rsa.pub",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/riscv64/alpine-devel@lists.alpinelinux.org-616db30d.rsa.pub",
+          "typeFlag": 50,
+          "linkName": "../alpine-devel@lists.alpinelinux.org-616db30d.rsa.pub",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/riscv64",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "usr/share/apk/keys/s390x/alpine-devel@lists.alpinelinux.org-58e4f17d.rsa.pub",
+          "typeFlag": 50,
+          "linkName": "../alpine-devel@lists.alpinelinux.org-58e4f17d.rsa.pub",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/s390x/alpine-devel@lists.alpinelinux.org-616ac3bc.rsa.pub",
+          "typeFlag": 50,
+          "linkName": "../alpine-devel@lists.alpinelinux.org-616ac3bc.rsa.pub",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/s390x",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "usr/share/apk/keys/x86/alpine-devel@lists.alpinelinux.org-4a6a0840.rsa.pub",
+          "typeFlag": 50,
+          "linkName": "../alpine-devel@lists.alpinelinux.org-4a6a0840.rsa.pub",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/x86/alpine-devel@lists.alpinelinux.org-5243ef4b.rsa.pub",
+          "typeFlag": 50,
+          "linkName": "../alpine-devel@lists.alpinelinux.org-5243ef4b.rsa.pub",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/x86/alpine-devel@lists.alpinelinux.org-61666e3f.rsa.pub",
+          "typeFlag": 50,
+          "linkName": "../alpine-devel@lists.alpinelinux.org-61666e3f.rsa.pub",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/x86",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "usr/share/apk/keys/x86_64/alpine-devel@lists.alpinelinux.org-4a6a0840.rsa.pub",
+          "typeFlag": 50,
+          "linkName": "../alpine-devel@lists.alpinelinux.org-4a6a0840.rsa.pub",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/x86_64/alpine-devel@lists.alpinelinux.org-5261cecb.rsa.pub",
+          "typeFlag": 50,
+          "linkName": "../alpine-devel@lists.alpinelinux.org-5261cecb.rsa.pub",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/x86_64/alpine-devel@lists.alpinelinux.org-6165ee59.rsa.pub",
+          "typeFlag": 50,
+          "linkName": "../alpine-devel@lists.alpinelinux.org-6165ee59.rsa.pub",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/apk/keys/x86_64",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "usr/share/apk/keys",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "usr/share/apk",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "usr/share/man",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "usr/share/misc",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "usr/share/udhcpc/default.script",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 3688,
+          "fileMode": 493,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "usr/share/udhcpc",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "usr/share",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "usr",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "var/cache/apk",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "var/cache/misc",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "var/cache",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "var/empty",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484013,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "var/lib/misc",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "var/lib",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "var/local",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "var/lock",
+          "typeFlag": 50,
+          "linkName": "../run/lock",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "var/log",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "var/mail",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "var/opt",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "var/run",
+          "typeFlag": 50,
+          "linkName": "../run",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "var/spool/cron/crontabs",
+          "typeFlag": 50,
+          "linkName": "../../../etc/crontabs",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "var/spool/cron",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "var/spool/mail",
+          "typeFlag": 50,
+          "linkName": "../mail",
+          "size": 0,
+          "fileMode": 134218239,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "var/spool",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "var/tmp",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2148532735,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        },
+        {
+          "path": "var",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "id": "blobs",
+      "digestId": "sha256:ab9ed39bff467b979c2cf1ac62ae2d0433ebe62a021e399959e4aef9021ef81d",
+      "sizeBytes": 0,
+      "command": "#(nop) WORKDIR /__app",
+      "fileList": [
+        {
+          "path": "__app",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "id": "blobs",
+      "digestId": "sha256:1fdcd7a578c3b86f22bc26c6ef5071f9c1ee40dfc84d21657ddac352d201ad70",
+      "sizeBytes": 12,
+      "command": "echo \"Hello World\" \u003e file1.txt",
+      "fileList": [
+        {
+          "path": "__app/file1.txt",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 12,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "__app",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "id": "blobs",
+      "digestId": "sha256:43cfac3073c629adc15b9f87deeb9de1d8c36d43d1def67e6fe63faf8233802d",
+      "sizeBytes": 174,
+      "command": "cat /etc/hosts \u003e hosts.txt",
+      "fileList": [
+        {
+          "path": "__app/hosts.txt",
+          "typeFlag": 48,
+          "linkName": "",
+          "size": 174,
+          "fileMode": 420,
+          "uid": 0,
+          "gid": 0,
+          "isDir": false
+        },
+        {
+          "path": "__app",
+          "typeFlag": 53,
+          "linkName": "",
+          "size": 0,
+          "fileMode": 2147484141,
+          "uid": 0,
+          "gid": 0,
+          "isDir": true
+        }
+      ]
+    }
+  ],
+  "image": {
+    "sizeBytes": 8169811,
+    "inefficientBytes": 0,
+    "efficiencyScore": 1,
+    "fileReference": []
+  }
+}
