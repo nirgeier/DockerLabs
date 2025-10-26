@@ -3,14 +3,29 @@
 ###
 
 nav:
-  - Labs:
-      - index.md
-      - 001-DockerCli: 001-DockerCli/README.md
-      - 002-DockerFile: 002-DockerFile/README.md
-      - 003-DockerFile-MultiStage: 003-DockerFile-MultiStage/README.md
-  - Tasks:
-      - Tasks/index.md
-      - DockerLogs: Tasks/DockerLogs/README.md
-      - DockerCommit: Tasks/DockerCommit/README.md
-      - DockerfileAdvanced: Tasks/DockerfileAdvanced/README.md
-      - MultiStage: Tasks/MultiStage/README.md
+    - Labs:
+          - index.md
+          - 001-DockerCli: 001-DockerCli/README.md
+          - 002-DockerFile: 002-DockerFile/README.md
+          - 003-DockerFile-MultiStage: 003-DockerFile-MultiStage/README.md
+          - 004-LocalRegistry: 004-LocalRegistry/README.md
+          - 005-DockerCompose-Basics: 005-DockerCompose-Basics/README.md
+          - 006-DockerCompose-env: 006-DockerCompose-env/README.md
+          - 007-DockerCompose-fragments: 007-DockerCompose-fragments/README.md
+          - 008-crictl: 008-crictl/README.md
+          - 009-dive-layers: 009-dive-layers/README.md
+          - 010-bake: 010-bake/README.md
+          - 011-Security&Trust: 011-Security&Trust/README.md
+          - 012-gvisor: 012-gvisor/README.md
+          - 013-Cgroup: 013-Cgroup/README.md
+          - 014-DockerDaemon: 014-DockerDaemon/README.md
+          - 015-Networking: 015-Networking/README.md
+          - 016-Advanced-Build: 016-Advanced-Build/README.md
+          - 017-Logging: 017-Logging/README.md
+          - 100-Hands-On: 100-Hands-On/README.md
+    - Tasks:
+          - Tasks/index.md
+          - Docker Basics: Tasks/DockerBasics/README.md
+          - Docker CLI: Tasks/Docker-CLI-Tasks/README.md
+          - Docker File: Tasks/DockerFile/README.md
+          - Docker Compose: Tasks/DockerCompose/README.md

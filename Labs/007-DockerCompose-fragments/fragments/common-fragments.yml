@@ -1,0 +1,104 @@
+# Common Fragments File
+# This file contains reusable configuration fragments that can be
+# included and referenced from main docker-compose files
+
+version: "3.8"
+
+# Service defaults
+x-service-defaults: &service-defaults
+  restart: unless-stopped
+  networks:
+    - app-network
+  logging: &logging
+    driver: json-file
+    options:
+      max-size: "10m"
+      max-file: "3"
+
+# Health check defaults
+x-healthcheck: &healthcheck
+  interval: 30s
+  timeout: 10s
+  retries: 3
+  start_period: 40s
+
+# Node.js service template
+x-node-service: &node-service
+  <<: *service-defaults
+  image: node:18-alpine
+  healthcheck:
+    <<: *healthcheck
+    test: ["CMD", "node", "--version"]
+
+# Python service template
+x-python-service: &python-service
+  <<: *service-defaults
+  image: python:3.11-alpine
+  healthcheck:
+    <<: *healthcheck
+    test: ["CMD", "python", "--version"]
+
+# Common environment variables
+x-environment-common: &env-common
+  NODE_ENV: ${NODE_ENV:-production}
+  LOG_LEVEL: ${LOG_LEVEL:-info}
+  TZ: UTC
+
+# Resource limits - small
+x-resources-small: &resources-small
+  deploy:
+    resources:
+      limits:
+        cpus: "0.5"
+        memory: 512M
+      reservations:
+        cpus: "0.25"
+        memory: 256M
+
+# Resource limits - medium
+x-resources-medium: &resources-medium
+  deploy:
+    resources:
+      limits:
+        cpus: "1.0"
+        memory: 1G
+      reservations:
+        cpus: "0.5"
+        memory: 512M
+
+# Resource limits - large
+x-resources-large: &resources-large
+  deploy:
+    resources:
+      limits:
+        cpus: "2.0"
+        memory: 2G
+      reservations:
+        cpus: "1.0"
+        memory: 1G
+
+# Security configuration
+x-security-config: &security-config
+  security_opt:
+    - no-new-privileges:true
+  read_only: true
+  tmpfs:
+    - /tmp
+    - /var/tmp
+
+# Development volume mounts
+x-dev-volumes: &dev-volumes
+  volumes:
+    - ./src:/app/src:rw
+    - ./package.json:/app/package.json:ro
+    - /app/node_modules
+
+# Networks definition (can be included)
+networks:
+  app-network:
+    driver: bridge
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
+    internal: true

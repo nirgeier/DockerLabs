@@ -1,0 +1,49 @@
+version: '3.8'
+
+# Example 4: Using Include with Fragments
+# This demonstrates how to include common fragments from external files
+# Note: 'include' feature requires Docker Compose V2.20+
+
+include:
+  - path: ./fragments/common-fragments.yml
+
+services:
+  # Use fragments from the included file
+  api-service:
+    <<: [*node-service, *resources-medium, *security-config]
+    container_name: api-service
+    environment:
+      <<: *env-common
+      SERVICE_NAME: api
+      PORT: 3000
+    ports:
+      - "3000:3000"
+    healthcheck:
+      <<: *healthcheck
+      test: ["CMD", "wget", "-q", "-O", "-", "http://localhost:3000/health"]
+
+  worker-service:
+    <<: [*python-service, *resources-small]
+    container_name: worker-service
+    environment:
+      <<: *env-common
+      SERVICE_NAME: worker
+    command: python worker.py
+
+  cache:
+    <<: *service-defaults
+    image: redis:7-alpine
+    container_name: redis-cache
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - backend
+
+# Networks are inherited from the included file
+# You can add additional networks here if needed
+networks:
+  monitoring:
+    driver: bridge

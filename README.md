@@ -7,7 +7,7 @@
 
 ---
 
-![](./resources/docker-logos.png)
+![](./mkdocs/overrides/assets/images/docker-logos.png)
 
 ---
 
@@ -33,6 +33,86 @@
 ![TL;DR](./mkdocs/overrides/assets/images/tldr.png)
 - Link to the online version of this repository:
   https://nirgeier.github.io/DockerLabs
+
+---
+
+## Labs
+
+| Lab                                                                 | Description                                                                              |
+|:--------------------------------------------------------------------|:-----------------------------------------------------------------------------------------|
+| [001 - Docker CLI](Labs/001-DockerCli/)                             | Practice the core Docker CLI commands for running, inspecting, and managing containers.  |
+| [002 - Dockerfile Basics](Labs/002-DockerFile/)                     | Build your first Node.js container image from a Dockerfile and publish it to a registry. |
+| [003 - Dockerfile Multi-Stage](Labs/003-DockerFile-MultiStage/)     | Learn how multi-stage Dockerfiles produce lean images across build targets.              |
+| [004 - Local Registry](Labs/004-LocalRegistry/)                     | Stand up a private registry, retag images, and push or pull them locally.                |
+| [005 - Docker Compose Stack](Labs/005-DockerCompose-Basics/)        | Orchestrate a WordPress and MariaDB stack with Docker Compose.                           |
+| [006 - Compose Environments](Labs/006-DockerCompose-env/)           | Structure Compose files and env vars for dev and prod workflows.                         |
+| [007 - Docker Compose Fragments](Labs/007-DockerCompose-fragments/) | Learn advanced Docker Compose features with fragments and modular configurations.        |
+| [008 - CRI `crictl`](Labs/008-crictl/)                              | Learn about container runtime interface tooling using crictl.                            |
+| [009 - Dive Layers](Labs/009-dive-layers/)                          | Explore image layer creation and visualize them with the dive tool.                      |
+| [010 - Docker Bake](Labs/010-bake/)                                 | Use Docker Buildx Bake to coordinate complex, multi-target image builds.                 |
+| [011 - Security & Trust](Labs/011-Security&Trust/)                  | Learn advanced Docker security features and best practices for container security.       |
+| [012 - gVisor Seccomp](Labs/012-gvisor/)                            | Apply a gVisor runtime profile to block privileged syscalls inside a container.          |
+| [013 - Resource Isolation](Labs/013-Cgroup/)                        | Learn about resource isolation using Linux Cgroups in Docker containers.                 |
+| [014 - Docker Daemon](Labs/014-DockerDaemon/)                       | Configure and manage the Docker daemon, including logging, storage, and security.        |
+| [015 - Docker Networking](Labs/015-Networking/)                     | Understand Docker networking fundamentals, drivers, and custom networks.                 |
+| [016 - Advanced Build](Labs/016-Advanced-Build/)                    | Advanced Docker build techniques using BuildKit and BuildX for multi-platform images.    |
+| [017 - Logging with Fluentd](Labs/017-Logging/)                     | Use Fluentd with Docker to collect and manage logs from containers and events.           |
+| [100 - Hands-On Intro](Labs/100-Hands-On/)                          | Guided Node.js exercise covering the full build, run, and publish workflow.              |
+
+## How to Use These Labs
+
+There are several ways to run the Docker Labs. Choose the method that works best for you.
+
+### 1. Killercoda (Recommended)
+
+The easiest way to get started with the labs. Learn Docker in your browser without any local installation.
+
+- **[Launch on Killercoda](https://killercoda.com/codewizard/scenario/DockerLabs)**
+
+**Benefits:**
+- No installation required
+- Pre-configured environment
+- Works on any device with a web browser
+- All tools pre-installed
+
+### 2. From Source
+
+For those who prefer to run it directly on their machine:
+
+```bash
+# Clone the repository
+git clone https://github.com/nirgeier/DockerLabs.git
+# Change to the Labs directory
+cd DockerLabs/Labs
+# Start with the Docker CLI lab
+cd 001-DockerCli
+# Follow the instructions in the README of each lab
+cat README.md
+```
+
+**Prerequisites:**
+- Docker installed on your system
+- A Unix-like operating system (Linux, macOS, or Windows with WSL)
+- Basic command-line tools
+
+### 3. Using Google Cloud Shell
+
+Google Cloud Shell provides a free, browser-based environment with all necessary tools pre-installed.
+
+- Click the button below to open in Google Cloud Shell:
+
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/nirgeier/DockerLabs)
+
+- The repository will automatically be cloned into a free Cloud instance.
+- Use **<kbd>CTRL</kbd>** + click to open it in a new window.
+- Follow the instructions in the README of each lab.
+
+**Benefits:**
+- No local installation required
+- Pre-configured environment
+- Works on any device with a web browser
+- All tools pre-installed
+- Free tier available
 
 ---
 

@@ -72,7 +72,7 @@ body {
     position: fixed;
     left: 30px;
     bottom: 25px;
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Elbit_Systems_logo.svg/2560px-Elbit_Systems_logo.svg.png");
+    background-image: url("/assets/images/docker.png");
     background-size: cover;
     background-position: center;
     border-radius: 5px;

@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  fluentd:
+    image: fluent/fluentd:latest
+    ports:
+      - "24224:24224"
+      - "5140:5140/udp"
+    volumes:
+      - ./fluentd.conf:/fluentd/etc/fluentd.conf
+    command: fluentd -c /fluentd/etc/fluentd.conf
