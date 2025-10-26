@@ -1,0 +1,61 @@
+version: "3.8"
+
+# Example 1: Basic YAML Anchors and Fragments
+# This demonstrates the simplest use of anchors and aliases
+
+# Define a logging configuration as an anchor
+x-logging: &default-logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+# Define a restart policy
+x-restart: &restart-policy
+  restart: unless-stopped
+
+services:
+  web:
+    image: nginx:alpine
+    container_name: web-server
+    # Use the anchor with alias
+    <<: *restart-policy
+    logging: *default-logging
+    ports:
+      - "80:80"
+    networks:
+      - frontend
+
+  api:
+    image: node:18-alpine
+    container_name: api-server
+    <<: *restart-policy
+    logging: *default-logging
+    ports:
+      - "3000:3000"
+    networks:
+      - frontend
+      - backend
+
+  database:
+    image: postgres:15-alpine
+    container_name: postgres-db
+    <<: *restart-policy
+    logging: *default-logging
+    environment:
+      POSTGRES_DB: myapp
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: secret123
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - backend
+
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
+
+volumes:
+  db-data:

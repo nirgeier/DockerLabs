@@ -1,0 +1,96 @@
+version: "3.8"
+
+# Example 3: Merging Multiple Anchors
+# You can merge multiple configuration fragments using an array syntax
+
+# Base configuration
+x-base-config: &base-config
+  restart: unless-stopped
+  networks:
+    - app-network
+
+# Monitoring labels
+x-monitoring: &monitoring
+  labels:
+    - "prometheus.scrape=true"
+    - "prometheus.port=9090"
+    - "monitoring.enabled=true"
+
+# Security configuration
+x-security: &security
+  security_opt:
+    - no-new-privileges:true
+  read_only: true
+  tmpfs:
+    - /tmp
+
+# Logging configuration
+x-logging: &logging
+  logging:
+    driver: json-file
+    options:
+      max-size: "10m"
+      max-file: "3"
+
+# Node.js specific configuration
+x-node-service: &node-service
+  image: node:18-alpine
+  healthcheck:
+    test: ["CMD", "node", "--version"]
+    interval: 30s
+    timeout: 10s
+    retries: 3
+
+services:
+  # Merge all configuration fragments
+  user-service:
+    # Merge multiple anchors using array syntax
+    <<: [*base-config, *monitoring, *security, *logging, *node-service]
+    container_name: user-service
+    environment:
+      SERVICE_NAME: user-service
+      PORT: 3001
+    ports:
+      - "3001:3000"
+
+  order-service:
+    <<: [*base-config, *monitoring, *security, *logging, *node-service]
+    container_name: order-service
+    environment:
+      SERVICE_NAME: order-service
+      PORT: 3002
+    ports:
+      - "3002:3000"
+
+  payment-service:
+    <<: [*base-config, *monitoring, *security, *logging, *node-service]
+    container_name: payment-service
+    environment:
+      SERVICE_NAME: payment-service
+      PORT: 3003
+    ports:
+      - "3003:3000"
+
+  # Database without security read-only (needs to write data)
+  database:
+    <<: [*base-config, *monitoring, *logging]
+    image: postgres:15-alpine
+    container_name: database
+    environment:
+      POSTGRES_DB: services_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: secret123
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db-data:

@@ -1,0 +1,154 @@
+version: '3.8'
+
+# Example 5: Complete Modular Composition
+# This demonstrates a complete setup using includes and fragments
+# Run with: docker compose -f 05-modular-complete.yml up -d
+
+include:
+  # Core infrastructure
+  - path: ./infrastructure/databases.yml
+  - path: ./infrastructure/cache.yml
+  
+  # Common fragments
+  - path: ./fragments/common-fragments.yml
+
+services:
+  # Frontend web server
+  nginx:
+    <<: [*service-defaults, *resources-small]
+    image: nginx:alpine
+    container_name: nginx-frontend
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./html:/usr/share/nginx/html:ro
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "-", "http://localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - frontend
+      - app-network
+    ports:
+      - "80:80"
+    depends_on:
+      - api-gateway
+
+  # API Gateway
+  api-gateway:
+    <<: [*node-service, *resources-medium]
+    container_name: api-gateway
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    environment:
+      <<: *env-common
+      SERVICE_NAME: api-gateway
+      PORT: 3000
+      REDIS_URL: redis://:${REDIS_PASSWORD:-redispass}@redis:6379
+      DATABASE_URL: postgresql://${DB_USER:-admin}:${DB_PASSWORD:-changeme}@postgres:5432/${DB_NAME:-appdb}
+    healthcheck:
+      <<: *healthcheck
+      test: ["CMD", "wget", "-q", "-O", "-", "http://localhost:3000/health"]
+    networks:
+      - app-network
+      - backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  # Application services
+  user-service:
+    <<: [*node-service, *resources-small]
+    container_name: user-service
+    build:
+      context: ./services/user-service
+      dockerfile: Dockerfile
+    environment:
+      <<: *env-common
+      SERVICE_NAME: user-service
+      PORT: 3001
+      DATABASE_URL: postgresql://${DB_USER:-admin}:${DB_PASSWORD:-changeme}@postgres:5432/${DB_NAME:-appdb}
+    healthcheck:
+      <<: *healthcheck
+      test: ["CMD", "wget", "-q", "-O", "-", "http://localhost:3001/health"]
+    networks:
+      - backend
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  order-service:
+    <<: [*node-service, *resources-small]
+    container_name: order-service
+    build:
+      context: ./services/order-service
+      dockerfile: Dockerfile
+    environment:
+      <<: *env-common
+      SERVICE_NAME: order-service
+      PORT: 3002
+      DATABASE_URL: postgresql://${DB_USER:-admin}:${DB_PASSWORD:-changeme}@postgres:5432/${DB_NAME:-appdb}
+      REDIS_URL: redis://:${REDIS_PASSWORD:-redispass}@redis:6379
+    healthcheck:
+      <<: *healthcheck
+      test: ["CMD", "wget", "-q", "-O", "-", "http://localhost:3002/health"]
+    networks:
+      - backend
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  # Background workers
+  email-worker:
+    <<: [*python-service, *resources-small]
+    container_name: email-worker
+    build:
+      context: ./workers/email
+      dockerfile: Dockerfile
+    environment:
+      <<: *env-common
+      WORKER_NAME: email-worker
+      REDIS_URL: redis://:${REDIS_PASSWORD:-redispass}@redis:6379
+    networks:
+      - backend
+    depends_on:
+      redis:
+        condition: service_healthy
+    command: python worker.py
+
+  # Monitoring
+  prometheus:
+    <<: [*service-defaults, *resources-small]
+    image: prom/prometheus:latest
+    container_name: prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "-", "http://localhost:9090/-/healthy"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - monitoring
+      - app-network
+    ports:
+      - "9090:9090"
+
+volumes:
+  prometheus-data:
+
+# Additional networks beyond those in included files
+networks:
+  monitoring:
+    driver: bridge

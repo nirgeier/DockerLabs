@@ -1,9 +1,10 @@
-![DockerLabs Banner](../assets/images/docker-logos.png)
 
+
+![DockerLabs Banner](../assets/images/docker-logos.png)
 
 ---
 
-# Lab - Writing Docker multi-stage build
+# Lab 003 - Writing Docker multi-stage build
 
 - In this lab we will learn how to write a multi-stage Docker file
 - A multistage build allows you to use **multiple images** to build a final product. 

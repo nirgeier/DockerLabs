@@ -1,18 +1,10 @@
-<a href="https://stackoverflow.com/users/1755598"><img src="https://stackexchange.com/users/flair/1951642.png" width="208" height="58" alt="profile for CodeWizard on Stack Exchange, a network of free, community-driven Q&amp;A sites" title="profile for CodeWizard on Stack Exchange, a network of free, community-driven Q&amp;A sites"></a>
 
-![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=nirgeier)
-[![Linkedin Badge](https://img.shields.io/badge/-nirgeier-blue?style=plastic&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/nirgeier/)](https://www.linkedin.com/in/nirgeier/)
-[![Gmail Badge](https://img.shields.io/badge/-nirgeier@gmail.com-fcc624?style=plastic&logo=Gmail&logoColor=red&link=mailto:nirgeier@gmail.com)](mailto:nirgeier@gmail.com)
-[![Outlook Badge](https://img.shields.io/badge/-nirg@codewizard.co.il-fcc624?style=plastic&logo=microsoftoutlook&logoColor=blue&link=mailto:nirg@codewizard.co.il)](mailto:nirg@codewizard.co.il)
+
+![DockerLabs Banner](../assets/images/docker-logos.png)
 
 ---
 
-![](../../resources/docker-logos.png)
-
----
-![](../../resources/hands-on.png)
-
-# Multi-Environment Docker Compose Setup <!-- omit in toc -->
+# Lab 006 - Multi-Environment Docker Compose Setup
 
 - A comprehensive example of structuring Docker Compose files for multiple environments
 - Demonstrates environment-specific overrides and configuration management
@@ -296,6 +288,300 @@ docker-compose --env-file .env.prod -f docker-compose.yml -f docker-compose.prod
 6. **Volume Management**: Read-only volumes in production, read-write in development
 7. **Logging**: Environment-appropriate logging levels and rotation
 8. **Networking**: Consistent network setup across environments
+
+## Advanced Docker Compose Techniques
+
+### YAML Anchors and Aliases
+
+Docker Compose supports YAML anchors (`&`) and aliases (`*`) to reduce duplication in your compose files. This is particularly useful when multiple services share common configuration.
+
+**Basic Anchors Example:**
+
+```yaml
+# Define reusable configuration blocks
+x-logging: &default-logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+x-healthcheck: &default-healthcheck
+  interval: 30s
+  timeout: 10s
+  retries: 3
+  start_period: 40s
+
+services:
+  web:
+    image: nginx:alpine
+    logging: *default-logging
+    healthcheck:
+      <<: *default-healthcheck
+      test: ["CMD", "curl", "-f", "http://localhost"]
+  
+  api:
+    image: node:18-alpine
+    logging: *default-logging
+    healthcheck:
+      <<: *default-healthcheck
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+```
+
+### Extension Fields (x-*)
+
+Extension fields are special YAML keys that start with `x-` and are ignored by Docker Compose. They're perfect for defining reusable configuration fragments.
+
+**Common Configuration Patterns:**
+
+```yaml
+# Define common configurations as extension fields
+x-common-variables: &common-vars
+  TZ: UTC
+  LOG_LEVEL: info
+
+x-restart-policy: &restart-policy
+  restart: unless-stopped
+
+x-resource-limits: &resource-limits
+  deploy:
+    resources:
+      limits:
+        cpus: '0.50'
+        memory: 512M
+      reservations:
+        cpus: '0.25'
+        memory: 256M
+
+services:
+  service1:
+    <<: *restart-policy
+    <<: *resource-limits
+    environment:
+      <<: *common-vars
+      SERVICE_NAME: service1
+  
+  service2:
+    <<: *restart-policy
+    <<: *resource-limits
+    environment:
+      <<: *common-vars
+      SERVICE_NAME: service2
+```
+
+### Merge Keys (<<:)
+
+The merge key `<<:` allows you to merge one or more mappings into the current mapping. You can merge multiple anchors:
+
+```yaml
+x-base-service: &base-service
+  restart: unless-stopped
+  networks:
+    - app-network
+
+x-logging-config: &logging-config
+  logging:
+    driver: json-file
+    options:
+      max-size: "10m"
+
+x-health-config: &health-config
+  healthcheck:
+    interval: 30s
+    timeout: 10s
+    retries: 3
+
+services:
+  web:
+    <<: [*base-service, *logging-config, *health-config]
+    image: nginx:alpine
+    ports:
+      - "80:80"
+  
+  api:
+    <<: [*base-service, *logging-config, *health-config]
+    image: node:18-alpine
+    ports:
+      - "3000:3000"
+```
+
+### Complex Fragment Patterns
+
+**Service Templates:**
+
+```yaml
+# Define a complete service template
+x-app-template: &app-template
+  restart: unless-stopped
+  networks:
+    - backend
+  logging:
+    driver: json-file
+    options:
+      max-size: "10m"
+      max-file: "3"
+  deploy:
+    resources:
+      limits:
+        cpus: '1.0'
+        memory: 1G
+
+# Define environment-specific configurations
+x-dev-config: &dev-config
+  build:
+    context: .
+    target: development
+  volumes:
+    - ./src:/app/src
+  environment:
+    NODE_ENV: development
+
+x-prod-config: &prod-config
+  image: myapp:latest
+  read_only: true
+  environment:
+    NODE_ENV: production
+
+services:
+  # Development service
+  app-dev:
+    <<: [*app-template, *dev-config]
+    ports:
+      - "3001:3000"
+  
+  # Production service
+  app-prod:
+    <<: [*app-template, *prod-config]
+    ports:
+      - "3000:3000"
+```
+
+### Combining Anchors with Override
+
+You can override specific values from anchors:
+
+```yaml
+x-database: &database-config
+  image: postgres:15-alpine
+  restart: unless-stopped
+  networks:
+    - db-network
+  healthcheck:
+    test: ["CMD-SHELL", "pg_isready"]
+    interval: 10s
+    timeout: 5s
+    retries: 5
+
+services:
+  main-db:
+    <<: *database-config
+    container_name: main-database
+    environment:
+      POSTGRES_DB: maindb
+    volumes:
+      - main-db-data:/var/lib/postgresql/data
+  
+  test-db:
+    <<: *database-config
+    container_name: test-database
+    environment:
+      POSTGRES_DB: testdb
+    volumes:
+      - test-db-data:/var/lib/postgresql/data
+    # Override the restart policy for test db
+    restart: "no"
+```
+
+### Real-World Example: Microservices
+
+```yaml
+version: '3.8'
+
+# Common configurations
+x-service-defaults: &service-defaults
+  restart: unless-stopped
+  networks:
+    - app-network
+  logging: &logging-config
+    driver: json-file
+    options:
+      max-size: "10m"
+      max-file: "3"
+
+x-node-service: &node-service
+  <<: *service-defaults
+  image: node:18-alpine
+  healthcheck:
+    interval: 30s
+    timeout: 10s
+    retries: 3
+
+x-environment-common: &env-common
+  NODE_ENV: ${NODE_ENV:-production}
+  LOG_LEVEL: ${LOG_LEVEL:-info}
+  DATABASE_URL: postgresql://db:5432/${DB_NAME}
+
+services:
+  user-service:
+    <<: *node-service
+    container_name: user-service
+    environment:
+      <<: *env-common
+      SERVICE_NAME: user-service
+      PORT: 3001
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "-", "http://localhost:3001/health"]
+    ports:
+      - "3001:3001"
+
+  order-service:
+    <<: *node-service
+    container_name: order-service
+    environment:
+      <<: *env-common
+      SERVICE_NAME: order-service
+      PORT: 3002
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "-", "http://localhost:3002/health"]
+    ports:
+      - "3002:3002"
+
+  payment-service:
+    <<: *node-service
+    container_name: payment-service
+    environment:
+      <<: *env-common
+      SERVICE_NAME: payment-service
+      PORT: 3003
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "-", "http://localhost:3003/health"]
+    ports:
+      - "3003:3003"
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db-data:
+```
+
+### Benefits of Using Fragments
+
+1. **DRY Principle**: Don't Repeat Yourself - define common configuration once
+2. **Consistency**: Ensure all services use the same base configuration
+3. **Maintainability**: Update configuration in one place
+4. **Readability**: Cleaner, more organized compose files
+5. **Scalability**: Easy to add new services with standard configuration
+
+### Tips for Using Fragments
+
+- Use meaningful names for your anchors (e.g., `&common-logging`, `&base-service`)
+- Group related configuration into logical fragments
+- Place extension fields at the top of your compose file
+- Document what each fragment contains
+- Test your merged configuration with `docker compose config`
+- Use fragments for environment-specific configurations
+- Combine fragments with environment variables for maximum flexibility
 
 ## Troubleshooting
 

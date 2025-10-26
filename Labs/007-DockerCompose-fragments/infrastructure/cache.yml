@@ -1,0 +1,43 @@
+version: '3.8'
+
+# Infrastructure: Caching Services
+# This file contains all caching-related services
+
+include:
+  - path: ../fragments/common-fragments.yml
+
+services:
+  redis:
+    <<: [*service-defaults, *resources-small]
+    image: redis:7-alpine
+    container_name: redis-cache
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-redispass}
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "--pass", "${REDIS_PASSWORD:-redispass}", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - backend
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+
+  memcached:
+    <<: [*service-defaults, *resources-small]
+    image: memcached:1.6-alpine
+    container_name: memcached
+    command: memcached -m 64
+    healthcheck:
+      test: ["CMD", "nc", "-z", "localhost", "11211"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - backend
+    ports:
+      - "${MEMCACHED_PORT:-11211}:11211"
+
+volumes:
+  redis-data:
