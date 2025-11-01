@@ -506,6 +506,8 @@
       
         
       
+        
+      
     
     
     
@@ -558,6 +560,8 @@
       
         
           
+        
+      
         
       
         
@@ -7098,7 +7102,47 @@ After installation, verify that binfmt is working:</p>
 </span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#016-advanced-build-__codelineno-19-5"></a>docker<span class="w"> </span>image<span class="w"> </span>rm<span class="w"> </span>myapp:multi<span class="w"> </span>multi-platform-node:latest
 </span></code></pre></div>
 <hr />
-<p>This lab demonstrates the power of BuildKit and BuildX for advanced Docker builds, enabling efficient and multi-platform container development.</p></section><section class="print-page" id="100-hands-on" heading-number="1.18"><p><img alt="DockerLabs Banner" src="../assets/images/docker-logos.png" /></p>
+<p>This lab demonstrates the power of BuildKit and BuildX for advanced Docker builds, enabling efficient and multi-platform container development.</p></section><section class="print-page" id="017-logging" heading-number="1.18"><h1 id="017-logging-lab-017-logging-with-fluentd">Lab 017 - Logging with Fluentd<a class="headerlink" href="#017-logging-lab-017-logging-with-fluentd" title="Permanent link">&para;</a></h1>
+<p>This lab demonstrates how to use Fluentd with Docker to collect and manage logs from Docker containers, Docker events, and syslog.</p>
+<h2 id="017-logging-prerequisites">Prerequisites<a class="headerlink" href="#017-logging-prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Docker installed and running</li>
+<li>Basic understanding of Docker and logging concepts</li>
+</ul>
+<h2 id="017-logging-overview">Overview<a class="headerlink" href="#017-logging-overview" title="Permanent link">&para;</a></h2>
+<p>Fluentd is an open-source data collector that provides a unified logging layer. In this lab, we&rsquo;ll:</p>
+<ol>
+<li>Set up Fluentd as a logging driver for Docker containers</li>
+<li>Collect Docker events using Fluentd</li>
+<li>Configure syslog input for Fluentd</li>
+</ol>
+<h2 id="017-logging-demo-scripts">Demo Scripts<a class="headerlink" href="#017-logging-demo-scripts" title="Permanent link">&para;</a></h2>
+<ul>
+<li><code>demo.sh</code>: Main demo script showing Fluentd setup with Docker logging</li>
+<li><code>fluentd.conf</code>: Fluentd configuration file</li>
+<li><code>docker-compose.yml</code>: Docker Compose file to run Fluentd</li>
+</ul>
+<h2 id="017-logging-running-the-demo">Running the Demo<a class="headerlink" href="#017-logging-running-the-demo" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Make sure Docker is running</li>
+<li>Run the demo script: <code>./demo.sh</code></li>
+<li>Follow the on-screen instructions</li>
+</ol>
+<h2 id="017-logging-key-concepts">Key Concepts<a class="headerlink" href="#017-logging-key-concepts" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Fluentd Logging Driver</strong>: Docker can send container logs directly to Fluentd</li>
+<li><strong>Docker Events</strong>: System events from Docker daemon (container start/stop, etc.)</li>
+<li><strong>Syslog Input</strong>: Fluentd can receive syslog messages from various sources</li>
+</ul>
+<h2 id="017-logging-cleanup">Cleanup<a class="headerlink" href="#017-logging-cleanup" title="Permanent link">&para;</a></h2>
+<p>After the demo, run:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#017-logging-__codelineno-0-1"></a>docker-compose<span class="w"> </span>down
+</span></code></pre></div>
+<h2 id="017-logging-additional-resources">Additional Resources<a class="headerlink" href="#017-logging-additional-resources" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://docs.fluentd.org/">Fluentd Documentation</a></li>
+<li><a href="https://docs.docker.com/config/containers/logging/configure/">Docker Logging Drivers</a></li>
+</ul></section><section class="print-page" id="100-hands-on" heading-number="1.19"><p><img alt="DockerLabs Banner" src="../assets/images/docker-logos.png" /></p>
 <hr />
 <h1 id="100-hands-on-lab-100-basic-docker-hands-on">Lab 100 - Basic Docker Hands-On<a class="headerlink" href="#100-hands-on-lab-100-basic-docker-hands-on" title="Permanent link">&para;</a></h1>
 <ul>
@@ -7837,6 +7881,182 @@ You might get the following error:</p>
 <li><strong>Second Stage (node-stage)</strong>: Based on <code>node</code>, creates <code>node.txt</code> with the required content</li>
 <li><strong>Final Stage</strong>: Based on <code>alpine</code> (lightweight), copies both files from previous stages using <code>COPY --from=&lt;stage-name&gt;</code> and displays their content when run</li>
 </ol>
+</details></section><section class="print-page" id="tasks-dockernetwork" heading-number="2.7"><h1 id="tasks-dockernetwork-task-creating-and-testing-docker-networks">Task: Creating and Testing Docker Networks<a class="headerlink" href="#tasks-dockernetwork-task-creating-and-testing-docker-networks" title="Permanent link">&para;</a></h1>
+<p><img alt="DockerLabs Banner" src="../assets/images/docker-logos.png" /></p>
+<hr />
+<p>This task provides a detailed guide to creating and testing Docker networks. Docker networks enable containers to communicate with each other securely and efficiently.</p>
+<h2 id="tasks-dockernetwork-prerequisites">Prerequisites<a class="headerlink" href="#tasks-dockernetwork-prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Docker installed and running</li>
+<li>Basic understanding of Docker containers</li>
+<li>Terminal access</li>
+</ul>
+<h2 id="tasks-dockernetwork-task-overview">Task Overview<a class="headerlink" href="#tasks-dockernetwork-task-overview" title="Permanent link">&para;</a></h2>
+<p>In this task, you will:</p>
+<ul>
+<li>List existing Docker networks</li>
+<li>Create custom networks with different configurations</li>
+<li>Run containers connected to networks</li>
+<li>Test connectivity between containers</li>
+<li>Manage network connections</li>
+<li>Clean up resources</li>
+</ul>
+<details>
+<summary>Solution</summary>
+<h2 id="tasks-dockernetwork-step-by-step-solution">Step-by-Step Solution<a class="headerlink" href="#tasks-dockernetwork-step-by-step-solution" title="Permanent link">&para;</a></h2>
+<h3 id="tasks-dockernetwork-01-list-existing-networks">01: List Existing Networks<a class="headerlink" href="#tasks-dockernetwork-01-list-existing-networks" title="Permanent link">&para;</a></h3>
+<p>First, let&rsquo;s see what networks are already available on your Docker host.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#tasks-dockernetwork-__codelineno-0-1"></a>docker<span class="w"> </span>network<span class="w"> </span>ls
+</span></code></pre></div>
+<p>This command will show the default networks:</p>
+<ul>
+<li><code>bridge</code>: Default network for containers</li>
+<li><code>host</code>: Uses the host&rsquo;s network stack</li>
+<li><code>none</code>: No networking</li>
+</ul>
+<h3 id="tasks-dockernetwork-02-create-a-custom-network">02: Create a Custom Network<a class="headerlink" href="#tasks-dockernetwork-02-create-a-custom-network" title="Permanent link">&para;</a></h3>
+<p>Create a custom bridge network for better isolation and control.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#tasks-dockernetwork-__codelineno-1-1"></a>docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>--driver<span class="w"> </span>bridge<span class="w"> </span>my-custom-network
+</span></code></pre></div>
+<ul>
+<li><code>--driver bridge</code>: Specifies the bridge driver (default)</li>
+<li><code>my-custom-network</code>: Name of the network</li>
+</ul>
+<p>Verify the network was created:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#tasks-dockernetwork-__codelineno-2-1"></a>docker<span class="w"> </span>network<span class="w"> </span>ls
+</span></code></pre></div>
+<p>You should see <code>my-custom-network</code> in the list.</p>
+<h3 id="tasks-dockernetwork-03-inspect-the-network">03: Inspect the Network<a class="headerlink" href="#tasks-dockernetwork-03-inspect-the-network" title="Permanent link">&para;</a></h3>
+<p>Get detailed information about the network.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#tasks-dockernetwork-__codelineno-3-1"></a>docker<span class="w"> </span>network<span class="w"> </span>inspect<span class="w"> </span>my-custom-network
+</span></code></pre></div>
+<p>This will show:</p>
+<ul>
+<li>Network ID</li>
+<li>Driver</li>
+<li>Subnet and gateway</li>
+<li>Connected containers (initially empty)</li>
+</ul>
+<h3 id="tasks-dockernetwork-04-run-containers-on-the-network">04: Run Containers on the Network<a class="headerlink" href="#tasks-dockernetwork-04-run-containers-on-the-network" title="Permanent link">&para;</a></h3>
+<p>Launch two containers connected to the custom network.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#tasks-dockernetwork-__codelineno-4-1"></a><span class="c1"># Run a web server container</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#tasks-dockernetwork-__codelineno-4-2"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>web-server<span class="w"> </span>--network<span class="w"> </span>my-custom-network<span class="w"> </span>-p<span class="w"> </span><span class="m">8080</span>:80<span class="w"> </span>nginx
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#tasks-dockernetwork-__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#tasks-dockernetwork-__codelineno-4-4"></a><span class="c1"># Run a client container for testing</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#tasks-dockernetwork-__codelineno-4-5"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>test-client<span class="w"> </span>--network<span class="w"> </span>my-custom-network<span class="w"> </span>alpine<span class="w"> </span>sleep<span class="w"> </span><span class="m">3600</span>
+</span></code></pre></div>
+<ul>
+<li><code>-d</code>: Run in detached mode</li>
+<li><code>--name</code>: Assign container names</li>
+<li><code>--network</code>: Connect to the custom network</li>
+<li><code>-p 8080:80</code>: Port mapping for the web server</li>
+</ul>
+<h3 id="tasks-dockernetwork-05-verify-container-connectivity">05: Verify Container Connectivity<a class="headerlink" href="#tasks-dockernetwork-05-verify-container-connectivity" title="Permanent link">&para;</a></h3>
+<p>Check that containers are connected to the network.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#tasks-dockernetwork-__codelineno-5-1"></a>docker<span class="w"> </span>network<span class="w"> </span>inspect<span class="w"> </span>my-custom-network
+</span></code></pre></div>
+<p>You should now see the two containers listed under &ldquo;Containers&rdquo;.</p>
+<h3 id="tasks-dockernetwork-06-test-network-communication">06: Test Network Communication<a class="headerlink" href="#tasks-dockernetwork-06-test-network-communication" title="Permanent link">&para;</a></h3>
+<p>Test communication between containers on the same network.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#tasks-dockernetwork-__codelineno-6-1"></a><span class="c1"># Get the IP address of the web server</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#tasks-dockernetwork-__codelineno-6-2"></a>docker<span class="w"> </span>inspect<span class="w"> </span>web-server<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-A<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="s2">&quot;Networks&quot;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#tasks-dockernetwork-__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#tasks-dockernetwork-__codelineno-6-4"></a><span class="c1"># Or use container names for DNS resolution</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#tasks-dockernetwork-__codelineno-6-5"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>test-client<span class="w"> </span>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span>web-server
+</span></code></pre></div>
+<p>Since containers on the same network can resolve each other by name, you can ping using the container name.</p>
+<h3 id="tasks-dockernetwork-07-test-external-access">07: Test External Access<a class="headerlink" href="#tasks-dockernetwork-07-test-external-access" title="Permanent link">&para;</a></h3>
+<p>Test access to the web server from the host.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#tasks-dockernetwork-__codelineno-7-1"></a>curl<span class="w"> </span>http://localhost:8080
+</span></code></pre></div>
+<p>You should see the default Nginx welcome page.</p>
+<h3 id="tasks-dockernetwork-08-connect-existing-container-to-network">08: Connect Existing Container to Network<a class="headerlink" href="#tasks-dockernetwork-08-connect-existing-container-to-network" title="Permanent link">&para;</a></h3>
+<p>Demonstrate connecting a running container to the network.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#tasks-dockernetwork-__codelineno-8-1"></a><span class="c1"># Run another container without specifying network</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#tasks-dockernetwork-__codelineno-8-2"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>standalone-container<span class="w"> </span>alpine<span class="w"> </span>sleep<span class="w"> </span><span class="m">3600</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#tasks-dockernetwork-__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#tasks-dockernetwork-__codelineno-8-4"></a><span class="c1"># Connect it to the custom network</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#tasks-dockernetwork-__codelineno-8-5"></a>docker<span class="w"> </span>network<span class="w"> </span>connect<span class="w"> </span>my-custom-network<span class="w"> </span>standalone-container
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#tasks-dockernetwork-__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#tasks-dockernetwork-__codelineno-8-7"></a><span class="c1"># Verify connection</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#tasks-dockernetwork-__codelineno-8-8"></a>docker<span class="w"> </span>network<span class="w"> </span>inspect<span class="w"> </span>my-custom-network
+</span></code></pre></div>
+<h3 id="tasks-dockernetwork-09-disconnect-container-from-network">09: Disconnect Container from Network<a class="headerlink" href="#tasks-dockernetwork-09-disconnect-container-from-network" title="Permanent link">&para;</a></h3>
+<p>Remove a container from the network.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#tasks-dockernetwork-__codelineno-9-1"></a>docker<span class="w"> </span>network<span class="w"> </span>disconnect<span class="w"> </span>my-custom-network<span class="w"> </span>standalone-container
+</span></code></pre></div>
+<p>Verify the container is no longer connected.</p>
+<h3 id="tasks-dockernetwork-10-create-network-with-custom-subnet">10: Create Network with Custom Subnet<a class="headerlink" href="#tasks-dockernetwork-10-create-network-with-custom-subnet" title="Permanent link">&para;</a></h3>
+<p>Create a network with a specific subnet.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#tasks-dockernetwork-__codelineno-10-1"></a>docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>--driver<span class="w"> </span>bridge<span class="w"> </span>--subnet<span class="w"> </span><span class="m">192</span>.168.10.0/24<span class="w"> </span>--gateway<span class="w"> </span><span class="m">192</span>.168.10.1<span class="w"> </span>custom-subnet-network
+</span></code></pre></div>
+<p>Inspect to verify the custom configuration.</p>
+<h3 id="tasks-dockernetwork-11-clean-up">11: Clean Up<a class="headerlink" href="#tasks-dockernetwork-11-clean-up" title="Permanent link">&para;</a></h3>
+<p>Remove containers and networks.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#tasks-dockernetwork-__codelineno-11-1"></a><span class="c1"># Stop and remove containers</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#tasks-dockernetwork-__codelineno-11-2"></a>docker<span class="w"> </span>stop<span class="w"> </span>web-server<span class="w"> </span>test-client<span class="w"> </span>standalone-container
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#tasks-dockernetwork-__codelineno-11-3"></a>docker<span class="w"> </span>rm<span class="w"> </span>web-server<span class="w"> </span>test-client<span class="w"> </span>standalone-container
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#tasks-dockernetwork-__codelineno-11-4"></a>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#tasks-dockernetwork-__codelineno-11-5"></a><span class="c1"># Remove networks</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#tasks-dockernetwork-__codelineno-11-6"></a>docker<span class="w"> </span>network<span class="w"> </span>rm<span class="w"> </span>my-custom-network<span class="w"> </span>custom-subnet-network
+</span></code></pre></div>
+<h2 id="tasks-dockernetwork-advanced-testing">Advanced Testing<a class="headerlink" href="#tasks-dockernetwork-advanced-testing" title="Permanent link">&para;</a></h2>
+<h3 id="tasks-dockernetwork-test-with-docker-compose">Test with Docker Compose<a class="headerlink" href="#tasks-dockernetwork-test-with-docker-compose" title="Permanent link">&para;</a></h3>
+<p>Create a <code>docker-compose.yml</code> file:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#tasks-dockernetwork-__codelineno-12-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.8&#39;</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#tasks-dockernetwork-__codelineno-12-2"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#tasks-dockernetwork-__codelineno-12-3"></a><span class="w">  </span><span class="nt">web</span><span class="p">:</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#tasks-dockernetwork-__codelineno-12-4"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#tasks-dockernetwork-__codelineno-12-5"></a><span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#tasks-dockernetwork-__codelineno-12-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-network</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#tasks-dockernetwork-__codelineno-12-7"></a><span class="w">  </span><span class="nt">client</span><span class="p">:</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#tasks-dockernetwork-__codelineno-12-8"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">alpine</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#tasks-dockernetwork-__codelineno-12-9"></a><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sleep 3600</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#tasks-dockernetwork-__codelineno-12-10"></a><span class="w">    </span><span class="nt">networks</span><span class="p">:</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#tasks-dockernetwork-__codelineno-12-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-network</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#tasks-dockernetwork-__codelineno-12-12"></a><span class="nt">networks</span><span class="p">:</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#tasks-dockernetwork-__codelineno-12-13"></a><span class="w">  </span><span class="nt">my-network</span><span class="p">:</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#tasks-dockernetwork-__codelineno-12-14"></a><span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bridge</span>
+</span></code></pre></div>
+<p>Run with:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#tasks-dockernetwork-__codelineno-13-1"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+</span></code></pre></div>
+<h3 id="tasks-dockernetwork-test-network-isolation">Test Network Isolation<a class="headerlink" href="#tasks-dockernetwork-test-network-isolation" title="Permanent link">&para;</a></h3>
+<p>Create two separate networks and verify containers can&rsquo;t communicate across them.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#tasks-dockernetwork-__codelineno-14-1"></a><span class="c1"># Create two networks</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#tasks-dockernetwork-__codelineno-14-2"></a>docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>network-a
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#tasks-dockernetwork-__codelineno-14-3"></a>docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>network-b
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#tasks-dockernetwork-__codelineno-14-4"></a>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#tasks-dockernetwork-__codelineno-14-5"></a><span class="c1"># Run containers on each</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#tasks-dockernetwork-__codelineno-14-6"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>container-a<span class="w"> </span>--network<span class="w"> </span>network-a<span class="w"> </span>alpine<span class="w"> </span>sleep<span class="w"> </span><span class="m">3600</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#tasks-dockernetwork-__codelineno-14-7"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>container-b<span class="w"> </span>--network<span class="w"> </span>network-b<span class="w"> </span>alpine<span class="w"> </span>sleep<span class="w"> </span><span class="m">3600</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#tasks-dockernetwork-__codelineno-14-8"></a>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#tasks-dockernetwork-__codelineno-14-9"></a><span class="c1"># Try to ping across networks (should fail)</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#tasks-dockernetwork-__codelineno-14-10"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>container-a<span class="w"> </span>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">4</span><span class="w"> </span>container-b<span class="w">  </span><span class="c1"># This will fail</span>
+</span></code></pre></div>
+<h2 id="tasks-dockernetwork-troubleshooting">Troubleshooting<a class="headerlink" href="#tasks-dockernetwork-troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="tasks-dockernetwork-common-issues">Common Issues<a class="headerlink" href="#tasks-dockernetwork-common-issues" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Port already in use</strong>: Change the port mapping</li>
+<li><strong>Network not found</strong>: Ensure the network name is correct</li>
+<li><strong>Container can&rsquo;t resolve names</strong>: Check if both containers are on the same network</li>
+</ol>
+<h3 id="tasks-dockernetwork-useful-commands">Useful Commands<a class="headerlink" href="#tasks-dockernetwork-useful-commands" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>docker network prune</code>: Remove unused networks</li>
+<li><code>docker network connect/disconnect</code>: Manage container network connections</li>
+<li><code>docker inspect &lt;container&gt;</code>: Get detailed container information including networks</li>
+</ul>
+<h2 id="tasks-dockernetwork-explanation">Explanation<a class="headerlink" href="#tasks-dockernetwork-explanation" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>docker network ls</strong>: Lists all networks on the Docker host</li>
+<li><strong>docker network create</strong>: Creates a new network with specified driver and options</li>
+<li><strong>docker network inspect</strong>: Shows detailed network configuration and connected containers</li>
+<li><strong>docker run &ndash;network</strong>: Connects a container to a specific network at startup</li>
+<li><strong>docker network connect/disconnect</strong>: Dynamically connects or disconnects running containers from networks</li>
+<li><strong>Container name resolution</strong>: Docker provides built-in DNS for containers on the same network</li>
+<li><strong>Network isolation</strong>: Containers on different networks cannot communicate unless explicitly connected</li>
+</ul>
 </details></section></section></div><style>.print-site-enumerate-headings #section-1 > h1:before { content: '1 ' }
 .print-site-enumerate-headings #index > h1:before { content: '1.1 ' }
 
@@ -7923,9 +8143,14 @@ You might get the following error:</p>
                 .print-site-enumerate-headings #016-advanced-build h2:before { content: '1.17.' counter(counter-016-advanced-build-2) ' ' }
                 .print-site-enumerate-headings #016-advanced-build h2 {  counter-increment: counter-016-advanced-build-2 }
             
-.print-site-enumerate-headings #100-hands-on > h1:before { content: '1.18 ' }
+.print-site-enumerate-headings #017-logging > h1:before { content: '1.18 ' }
 
-                .print-site-enumerate-headings #100-hands-on h2:before { content: '1.18.' counter(counter-100-hands-on-2) ' ' }
+                .print-site-enumerate-headings #017-logging h2:before { content: '1.18.' counter(counter-017-logging-2) ' ' }
+                .print-site-enumerate-headings #017-logging h2 {  counter-increment: counter-017-logging-2 }
+            
+.print-site-enumerate-headings #100-hands-on > h1:before { content: '1.19 ' }
+
+                .print-site-enumerate-headings #100-hands-on h2:before { content: '1.19.' counter(counter-100-hands-on-2) ' ' }
                 .print-site-enumerate-headings #100-hands-on h2 {  counter-increment: counter-100-hands-on-2 }
             
 .print-site-enumerate-headings #section-2 > h1:before { content: '2 ' }
@@ -7958,6 +8183,11 @@ You might get the following error:</p>
 
                 .print-site-enumerate-headings #tasks-dockerfile-multistage h2:before { content: '2.6.' counter(counter-tasks-dockerfile-multistage-2) ' ' }
                 .print-site-enumerate-headings #tasks-dockerfile-multistage h2 {  counter-increment: counter-tasks-dockerfile-multistage-2 }
+            
+.print-site-enumerate-headings #tasks-dockernetwork > h1:before { content: '2.7 ' }
+
+                .print-site-enumerate-headings #tasks-dockernetwork h2:before { content: '2.7.' counter(counter-tasks-dockernetwork-2) ' ' }
+                .print-site-enumerate-headings #tasks-dockernetwork h2 {  counter-increment: counter-tasks-dockernetwork-2 }
             </style>
 <!--
   Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
