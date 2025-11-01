@@ -1,0 +1,13 @@
+{
+    "defaultAction": "SCMP_ACT_ALLOW",
+    "syscalls": [
+        {
+            "names": [
+                "mount",
+                "umount",
+                "umount2"
+            ],
+            "action": "SCMP_ACT_ERRNO"
+        }
+    ]
+}

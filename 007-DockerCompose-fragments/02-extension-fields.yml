@@ -1,0 +1,88 @@
+version: "3.8"
+
+# Example 2: Extension Fields (x-*)
+# Extension fields are YAML keys starting with 'x-' that are ignored by Docker Compose
+# They're perfect for defining reusable configuration fragments
+
+# Common environment variables
+x-common-variables: &common-vars
+  TZ: UTC
+  LOG_LEVEL: info
+  ENVIRONMENT: production
+
+# Base service configuration
+x-service-base: &service-base
+  restart: unless-stopped
+  networks:
+    - app-network
+  logging:
+    driver: json-file
+    options:
+      max-size: "10m"
+      max-file: "3"
+      labels: "service"
+
+# Health check defaults
+x-healthcheck-defaults: &healthcheck-defaults
+  interval: 30s
+  timeout: 10s
+  retries: 3
+  start_period: 40s
+
+# Resource limits
+x-resource-limits: &resource-limits
+  deploy:
+    resources:
+      limits:
+        cpus: "1.0"
+        memory: 1G
+      reservations:
+        cpus: "0.5"
+        memory: 512M
+
+services:
+  web:
+    <<: *service-base
+    <<: *resource-limits
+    image: nginx:alpine
+    container_name: web-service
+    environment:
+      <<: *common-vars
+      SERVICE_NAME: web
+    healthcheck:
+      <<: *healthcheck-defaults
+      test: ["CMD", "wget", "-q", "-O", "-", "http://localhost"]
+    ports:
+      - "80:80"
+
+  api:
+    <<: *service-base
+    <<: *resource-limits
+    image: node:18-alpine
+    container_name: api-service
+    environment:
+      <<: *common-vars
+      SERVICE_NAME: api
+      PORT: 3000
+    healthcheck:
+      <<: *healthcheck-defaults
+      test: ["CMD", "wget", "-q", "-O", "-", "http://localhost:3000/health"]
+    ports:
+      - "3000:3000"
+
+  worker:
+    <<: *service-base
+    <<: *resource-limits
+    image: python:3.11-alpine
+    container_name: worker-service
+    environment:
+      <<: *common-vars
+      SERVICE_NAME: worker
+    healthcheck:
+      <<: *healthcheck-defaults
+      test: ["CMD", "python", "--version"]
+    command: python worker.py
+
+networks:
+  app-network:
+    driver: bridge
