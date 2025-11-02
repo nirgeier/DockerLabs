@@ -6,9 +6,9 @@
 
 # Lab 001 - Docker CLI
 
-- This lab covers the basics of the Docker CLI.
-- You will learn how to run, manage, and interact with Docker containers using various Docker commands.
-- By the end of this lab, you will have a solid understanding of how to use the Docker CLI for container management.
+- This lab covers the basics of the `Docker CLI`.
+- You will learn how to run, manage and interact with Docker containers using various Docker commands.
+- By the end of this lab, you will have a solid understanding of how to use the `Docker CLI` for container management.
 
 ---
 
@@ -66,7 +66,7 @@ docker attach alpine001
 
     * To detach from the container without stopping it, you can use the <kbd>CTRL + P</kbd> followed by <kbd>CTRL + Q</kbd> key combination.    
     * This will leave the container running in the background while you return to your terminal.  
-        * **This detach sequence only works if the container was started with the `-it` flags (interactive with a TTY)**
+        * **Note that this detach sequence only works if the container was started with the `-it` flag (interactive with a TTY)**
 
 ---
 
@@ -162,12 +162,12 @@ docker attach alpine001
 
 ### `docker cp`
 
-- `docker cp` is used to copy files between the container and the host
-- Lets spin a container and then lets grab the logs of this container to our host
+- The `docker cp` command is used to copy files between the container and the host
+- Let's spin a container and then let's grab the logs of this container to our host
 
 !!! debug "Copying files from and to a Container"
 
-    Since container are "file system" we can grab files even when the container is stopped.
+    Since containers are essentially "file systems", we can grab files even when the container is stopped.
 
 * Example 1 - Copy file from Container to Host
 
@@ -184,7 +184,7 @@ docker attach alpine001
 
 * Example 2 - Copy file from Host to Container
 
-    - In the second example we will upload file to our container
+    - In the second example we will upload a file to our container
     - We will change the default nginx welcome page with our own page
 
       ```sh
@@ -206,8 +206,8 @@ docker attach alpine001
 
 ### `docker create`
 
-- `docker create` creates a new container but does not start it.
-- This is useful when you want to prepare a container and start it later.
+- the `docker create` command creates a new container but does not start it.
+- This is useful when you want to prepare a container, but prefer to start it later.
     ```sh
     # Create a container without starting it
     docker create --name my-nginx nginx
@@ -262,7 +262,7 @@ docker attach alpine001
 
 ### `docker images`
 
-- `docker images` lists all Docker images on your system.
+- The `docker images` command lists all Docker images on your system.
 - This command helps you see what images you have available locally.
 
     ```sh
@@ -289,8 +289,8 @@ docker attach alpine001
 
 ### `docker inspect`
 
-- `docker inspect` provides detailed information about Docker objects (containers, images, volumes, networks).
-- Returns a JSON array with all the metadata.
+- The `docker inspect` command provides detailed information about Docker objects (containers, images, volumes, networks).
+- It returns a JSON array with all the metadata.
     ```sh
     # Create a container for inspection
     docker run -d --name nginx-inspect -p 8080:80 nginx
@@ -319,7 +319,7 @@ docker attach alpine001
 
 ### `docker kill`
 
-- `docker kill` immediately terminates a running container.
+- The `docker kill` command immediately terminates a running container.
 - Unlike `docker stop`, it sends SIGKILL by default (no graceful shutdown).
     ```sh
     # Create a running container
@@ -348,8 +348,8 @@ docker attach alpine001
 
 ### `docker logs`
 
-- `docker logs` fetches the logs of a container.
-- Useful for debugging and monitoring container output.
+- The `docker logs` command fetches the logs of a container.
+- It is useful for debugging and monitoring container output.
 - By default, it shows all logs since the container started.
 - You can use various options to filter and format the logs.
     ```sh
@@ -383,7 +383,7 @@ docker attach alpine001
 
 ### `docker pause`
 
-- `docker pause` suspends all processes in a container.
+- The `docker pause` command suspends all processes in a container.
 - The container continues to exist but is frozen.
 
     ```sh
@@ -407,8 +407,9 @@ docker attach alpine001
 
 ### `docker ps`
 
+- The `docker ps` command lists containers.
 - The "problem" with the previous command is that the container is not removed once it exits.
-- Lets look at the list of containers that we have right now on the host machine
+- Let's look at the list of containers that we have right now on the host machine
     ```sh
     # List exiting containers on our host machine
 
@@ -426,7 +427,7 @@ docker attach alpine001
 
 ### `docker pull`
 
-- `docker pull` downloads an image from a Docker registry (like Docker Hub).
+- The `docker pull` command downloads an image from a Docker registry (e.g., [Docker Hub](https://hub.docker.com/)).
 - This command is useful when you want to download an image without running it immediately.
     ```sh
     # Pull the latest version of an image
@@ -449,8 +450,8 @@ docker attach alpine001
 
 ### `docker push`
 
-- `docker push` uploads an image to a Docker registry.
-- You need to be logged in to the registry and have proper permissions.
+- The `docker push` command uploads an image to a Docker registry.
+- Note that you need to be logged in to that registry and have proper permissions.
     ```sh
     # Tag an image for pushing (replace 'yourusername' with your Docker Hub username)
     docker tag alpine:latest yourusername/my-alpine:v1.0
@@ -472,8 +473,8 @@ docker attach alpine001
 
 ### `docker rename`
 
-- `docker rename` changes the name of an existing container.
-- Useful for organizing or clarifying container purposes.
+- The `docker rename` command changes the name of an existing container.
+- It is useful for organizing or clarifying container purposes.
 
     ```sh
     # Create a container with a generic name
@@ -494,8 +495,8 @@ docker attach alpine001
 
 ### `docker restart`
 
-- `docker restart` stops and then starts a container.
-- Combines `docker stop` and `docker start` in one command.
+- The `docker restart` command stops and then starts a container.
+- It combines `docker stop` and `docker start` into one command.
 
     ```sh
     # Create a running container
@@ -521,8 +522,8 @@ docker attach alpine001
 
 ### `docker rm`
 
-- Lets clean and remove the containers which are not running anymore
-- `docker rm` removes one or more stopped containers from your system.
+- Let's clean and remove the containers which are not running anymore
+- The `docker rm` command removes one or more stopped containers from your system.
 - This helps free up system resources by deleting containers that are no longer needed.
 
 !!! debug "Removing Containers"
@@ -530,7 +531,7 @@ docker attach alpine001
        
       - You `cannot` remove a running container without stopping it first.
       - Use `docker ps -a` to list all containers (including stopped ones) before removing them.
-      - **Warning:** This action is irreversible.
+      - **Warning:** This action is irreversible!
 
 * Example:
     ```sh
@@ -556,10 +557,10 @@ docker attach alpine001
 
 ### `docker rmi`
 
-- `docker rmi` removes one or more Docker images from your system.
+- The `docker rmi` command removes one or more Docker images from your system.
 - This helps free up disk space by removing unused images.
-- You cannot remove an image that is being used by a running container.
-- If you need to remove such an image, you must stop and remove the container using it first.
+- You cannot remove an image that is currently being used by a running container.
+- If you need to remove such an image, you must stop and remove the container using said image first.
 - **Tip:** Use `docker ps -a` to list all containers (including stopped ones) before removing them.
     ```sh
     # Remove a specific image
@@ -586,8 +587,8 @@ docker attach alpine001
 
 ### `docker run`  
 
-- The `run` command container many options (flags), we will not cover all of them
-- [docs.docker.com - run](https://docs.docker.com/reference/cli/docker/container/run/)
+- The `run` command contains many options (flags), but we will not cover all of them.
+- See the `run` command documentation here: [docs.docker.com - run](https://docs.docker.com/reference/cli/docker/container/run/)
 - Run your first container: 
     ```sh
     # Run the first container
@@ -620,9 +621,9 @@ docker attach alpine001
 
 ### `docker run -d` 
 
-- Spin up the container which will run in the background
-- By default when you spin a docker container it will attach itself to the current terminal.
-- In order to avoid it we will use the -d flag to specify that the container should be running in the background.
+- The `-d` flag tells Docker to run the container in detached mode.
+- By default when you spin a docker container, it will attach itself to the current terminal.
+- In order to avoid this, we will use the `-d` flag in order to specify that the container should be running in the background.
     ```sh
     # Spin an nginx in the background.
     # Add a sleep timeout so that the container will not exit immediately
@@ -637,11 +638,10 @@ docker attach alpine001
 ### `docker run -it`  
 
 !!! debug "Interactive Terminal"
-    * The flags `-it` stands for:   
-      `-i` [`--interactive`]
-      keeps the container's STDIN open, and lets you send input to the container through standard input.
-      `-t` [`--tty`]  
-      Attaches a pseudo-TTY to the container, connecting your terminal to the I/O streams of the container.
+    The flag `-it` stands for:   
+    `-i` [`--interactive`]: Keeps the container's STDIN open, and lets you send input to the container through standard input.
+
+    `-t` [`--tty`]: Attaches a pseudo-TTY to the container, connecting your terminal to the I/O streams of the container.
 
 * Example - Run an interactive shell inside an alpine container
     ```bash
@@ -652,9 +652,9 @@ docker attach alpine001
 
 ---
 
-### `docker run -name` 
+### `docker run --name` 
 
-- By default the container will be assigned a semi-random name based upon the following code:
+- By default, the container will be assigned a semi-random name based upon the following code:
 [docker-ce/names-generator.go](https://github.com/docker/docker-ce/blob/master/components/engine/pkg/namesgenerator/names-generator.go)
 - We can assign our desired name to the container with the `--name` option
     ```sh
@@ -671,7 +671,7 @@ docker attach alpine001
 ### `docker run -p`  
 
 !!! debug "Port Mapping"
-    * We can specify the exact ports we wish to open `-p` or open them all `-P` 
+    * We can specify the exact ports we wish to open with `-p`, or open them all with `-P`.
 
 * Run a container and connect to a port on the host which will be used to connect to the container
     ```sh
@@ -702,8 +702,8 @@ docker attach alpine001
 
 ### `docker start`
 
-- `docker start` starts one or more stopped containers.
-- Unlike `docker run`, this command starts an existing container.
+- The `docker start` command starts one or more stopped containers.
+- Unlike `docker run`, this command applies only to an **existing container**.
 - It does not create a new container.
     ```sh
     # Create a container but don't start it immediately
@@ -731,11 +731,11 @@ docker attach alpine001
 
 ### `docker stats`
 
-- `docker stats` displays a live stream of resource usage statistics for containers.
-- Shows CPU, memory, network I/O, and disk I/O usage.
-- Useful for monitoring container performance in real-time.
-- Can be used to identify resource bottlenecks and optimize container performance.
-- Supports filtering and formatting options for customized output.
+- The `docker stats` command displays a live stream of resource usage statistics for containers.
+- It can show CPU, memory, network I/O, and disk I/O usage.
+- It is useful for monitoring container performance in real-time.
+- It can be used to identify resource bottlenecks and optimize container performance.
+- It supports filtering and formatting options for customized output.
     ```sh
     # Create some containers
     docker run -d --name stats-test1 nginx
@@ -763,8 +763,8 @@ docker attach alpine001
 
 ### `docker stop`
 
-- `docker stop` stops one or more running containers gracefully.
-- Sends SIGTERM signal first, then SIGKILL after grace period.
+- The `docker stop` command stops one or more running containers gracefully.
+- It sends a `SIGTERM` signal first, then a `SIGKILL` signal after a grace period.
 
     ```sh
     # Create a running container
@@ -793,8 +793,8 @@ docker attach alpine001
 
 ### `docker top`
 
-- `docker top` displays the running processes inside a container.
-- Similar to the Linux `top` command but for containers.
+- The `docker top` command displays the running processes inside a container.
+- It is similar to the Linux `top` command, but for containers.
   ```sh
   # Create a running container
   docker run -d --name top-test nginx
@@ -821,8 +821,8 @@ docker attach alpine001
 
 ### `docker unpause`
 
-- `docker unpause` resumes all processes in a paused container.
-- Used in conjunction with `docker pause`.
+- The `docker unpause` command resumes all processes that were paused in a container.
+- It is used in conjunction with `docker pause`.
   ```sh
   # Create and pause a container
   docker run -d --name unpause-test alpine sh -c "while true; do echo 'Running'; sleep 1; done"
@@ -849,8 +849,8 @@ docker attach alpine001
 
 ### `docker wait`
 
-- `docker wait` blocks until one or more containers stop.
-- Returns the exit code of the container.
+- The `docker wait` command blocks until one or more containers stop.
+- It returns the exit code of the container.
 
     ```sh
     # Create a container that will exit after 5 seconds

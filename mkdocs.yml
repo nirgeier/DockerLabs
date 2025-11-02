@@ -82,6 +82,11 @@ nav:
       - 100-Hands-On: 100-Hands-On/README.md
   - Tasks:
       - Tasks/index.md
+      - DockerLogs: Tasks/DockerLogs/README.md
+      - DockerCommit: Tasks/DockerCommit/README.md
+      - DockerDebug: Tasks/DockerDebug/README.md
+      - DockerfileAdvanced: Tasks/DockerfileAdvanced/README.md
+      - MultiStage: Tasks/MultiStage/README.md
       - DockerCommit: Tasks/DockerCLI/DockerCommit/README.md
       - DockerDebug: Tasks/DockerCLI/DockerDebug/README.md
       - DockerLogs: Tasks/DockerCLI/DockerLogs/README.md
@@ -100,6 +105,7 @@ site_description: A collection of GitHub Labs for learning and practicing Docker
 site_dir: ./mkdocs-site
 site_name: DockerLabs - Docker Hands-On
 site_url: https://nirgeier.github.io/DockerLabs/
+dev_addr: 127.0.0.1:9000
 ###
 ### mkdocs-extra.yml
 ###
@@ -110,17 +116,17 @@ extra:
   generator: false
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/nirgeier/DockerLabs
+      link: https://github.com/Linuman/DockerLabs
       name: View on GitHub
       class: social-class__github
 
     - icon: octicons/repo-forked-16
-      link: https://github.com/nirgeier/DockerLabs/network/members
+      link: https://github.com/Linuman/DockerLabs/network/members
       name: Fork this repo
       class: social-class__fork
 
     - icon: octicons/star-16
-      link: https://github.com/nirgeier/DockerLabs/stargazers
+      link: https://github.com/Linuman/DockerLabs/stargazers
       name: Star this repo
       class: social-class__star
 
@@ -215,7 +221,7 @@ plugins:
       branch: main
       docs_path: Labs # set if your docs folder is not root
       enabled: true
-      repository: nirgeier/DockerLabs
+      repository: Linuman/DockerLabs
   - git-revision-date-localized:
       enable_creation_date: true
       enable_git_follow: false

@@ -1,0 +1,2 @@
+[mkdocs.plugins]
+print-site = mkdocs_print_site_plugin.plugin:PrintSitePlugin

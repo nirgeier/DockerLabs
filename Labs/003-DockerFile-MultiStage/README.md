@@ -6,13 +6,13 @@
 
 # Lab 003 - Writing Docker multi-stage build
 
-- In this lab we will learn how to write a multi-stage Docker file
+- In this lab we will learn how to write a multi-stage Docker file.
 - A multistage build allows you to use **multiple images** to build a final product. 
-- In a multistage build, you have a **single** Dockerfile which build up multiple images inside it to help build the final image.
+- In a multistage build, you have a **single** Dockerfile which builds up multiple images inside it, used to help build the final image.
 
 ---
 
-## Why Use Multistage Builds?
+## 01. Why Use Multistage Builds?
 
 <div class="grid cards" markdown>
 
@@ -47,7 +47,7 @@
     ---
 
     - Separate concerns by using multiple named stages
-    - No need for manual cleanup of build dependencies
+    - No need for a manual cleanup of build dependencies
     - Easier to read and maintain with clear stage purposes
     - Use meaningful stage names for better clarity
     - Add comments to explain each stage's role
@@ -73,11 +73,11 @@
 ---
 
 
-## 01. Create multi-stage docker file
+## 02. Create multi-stage docker file
 
 - The first step is to create a Dockerfile.
-- Later on we will pass build time arguments to this file to build the desired image
-- `Dockerfile`
+- Later-on we will pass build time arguments to this file to build the desired image
+- See the below `Dockerfile`:
     ```Dockerfile
     # Get the value of the desired image to build
     ARG     BASE_IMG=curl
@@ -103,7 +103,7 @@
     CMD     ["cat", "image.txt"]
     ```
 
-## 02. Build the desired images
+## 03. Build the desired images
 
 - We will use the following script to build multiple images and to test the results
     ```bash
@@ -128,9 +128,9 @@
 
 ---
 
-## 03. Test the images
+## 04. Test the images
 
-- We will now test the 4 images we build perviously
+- We will now test the 4 images we have built previously
     ```bash
     # Debug mode
     set -x
@@ -142,7 +142,7 @@
     docker run bash2
     ```
 
-- You should see output similar to this one:
+- You should see output similar to this:
     ```bash
     + docker run curl1
     This file is from curl image
@@ -156,10 +156,10 @@
 
 ---
 
-## 04. Quiz
+## 05. Quiz
   
-  * What will be the results of this docker file?
-  * Try to answer and then build the following `Dockerfile` to see the results
+  * What will be the results of this d`Dockerfile`?
+  * Try to answer and then build the following `Dockerfile` to see the results:
         ```dockerfile
         # Build the base image
         FROM    alpine AS base_image
@@ -178,7 +178,7 @@
         RUN cat image.txt
         CMD ["cat", "image.txt"]
         ```
-  - Test your answer with the following command
+  - Test your answer with the following command:
 
     ```bash
     docker build -f Dockerfile2 .
@@ -186,10 +186,10 @@
 
 ---
 
-## 05. Build a specific target
+## 06. Build a specific target
 
-  - We can build our specific image and stop at the desired stage
-  - In other words we don't need to build all the images within the docker file
+  - We can build our specific image and stop at the desired stage.
+  - In other words, we don't need to build all the images within the `Dockerfile`.
 
     ```bash
     docker build --target build-curl -f Dockerfile2 .
@@ -197,19 +197,20 @@
 
 ---
 
-## 06. In-Class Exercise
+## 07. In-Class Exercise
     
-- Create a `multi-stage` docker file that will build 2 images
-- The first image will be based on `alpine` and will create a file named `alpine.txt` with the content: `This is alpine image`
-- The second image will be based on `node` and will create a file named `node.txt` with the content: `This is node image`
+- Create a `multi-stage` `Dockerfile` that will build 2 images.
+- The first image will be based on `alpine` and will create a file named `alpine.txt` with the content: `This is alpine image`.
+- The second image will be based on `node` and will create a file named `node.txt` with the content: `This is node image`.
 - The final image should be based on `alpine` and should copy the files which you created from the previous stages and display their content when the container will run.
-- Hint: Use the `COPY --from=` command to copy files from previous stages
+- Hint: Use the `COPY --from=` command to copy files from previous stages.
 
 <details>
 <summary>Solution</summary>
 
 ### Dockerfile Solution
 
+<br>
 Create a file named `Dockerfile-exercise`:
 
 ```dockerfile
@@ -231,7 +232,7 @@ CMD   cat alpine.txt && cat node.txt
 ```
 
 ### Build and Test
-
+<br>
 Build the image:
 
 ```bash
@@ -252,9 +253,11 @@ This is node image
 ```
 
 ### Explanation
-
-1. **First Stage (alpine-stage)**: Based on `alpine`, creates `alpine.txt` with the required content
-2. **Second Stage (node-stage)**: Based on `node`, creates `node.txt` with the required content
-3. **Final Stage**: Based on `alpine` (lightweight), copies both files from previous stages using `COPY --from=<stage-name>` and displays their content when run
+<br>
+1. First Stage (alpine-stage): Based on `alpine`, creates `alpine.txt` with the required content.
+<br>
+2. Second Stage (node-stage): Based on `node`, creates `node.txt` with the required content.
+<br>
+3. Final Stage: Based on `alpine` (lightweight), copies both files from previous stages using `COPY --from=<stage-name>` and displays their content when run.
 
 </details>

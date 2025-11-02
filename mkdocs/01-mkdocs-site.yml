@@ -10,3 +10,4 @@ site_description: A collection of GitHub Labs for learning and practicing Docker
 site_dir: ./mkdocs-site
 site_name: DockerLabs - Docker Hands-On
 site_url: https://nirgeier.github.io/DockerLabs/
+dev_addr: 127.0.0.1:9000
