@@ -12,6 +12,16 @@
 
 ## Task Index
 
+### Docker CLI Tasks
+
+| Task | Description |
+| --- | --- |
+| [DockerCommit](DockerCLI/DockerCommit/) | In-class exercise for capturing container changes with `docker commit`. |
+| [DockerDebug](DockerCLI/DockerDebug/) | Debugging challenge: troubleshoot a crashing Flask container and fix missing configurations. |
+| [DockerLogs](DockerCLI/DockerLogs/) | In-class exercise for running cowsay container, managing logs, and debugging. |
+
+### Dockerfile Tasks
+
 | Task | Description |
 | --- | --- |
 | [DockerCommit](DockerCommit/) | In-class exercise for capturing container changes with `docker commit`. |
@@ -19,6 +29,8 @@
 | [DockerfileAdvanced](DockerfileAdvanced/) | Advanced Dockerfile exercise covering BuildKit secrets, caching, and health checks. |
 | [DockerLogs](DockerLogs/) | In-class exercise for running cowsay container, managing logs, and debugging. |
 | [MultiStage](MultiStage/) | In-class exercise for creating multi-stage Dockerfiles with alpine and node images. |
+| [DockerfileAdvanced](DockerFile/DockerfileAdvanced/) | Advanced Dockerfile exercise covering build arguments, parameterized ports, and Node.js time server. |
+| [MultiStage](DockerFile/MultiStage/) | In-class exercise for creating multi-stage Dockerfiles with alpine and node images. |
 
 ---
 

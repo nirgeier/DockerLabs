@@ -1,5 +1,6 @@
-![DockerLabs Banner](../assets/images/docker-logos.png)
 
+
+![DockerLabs Banner](../assets/images/docker-logos.png)
 
 ---
 

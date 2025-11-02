@@ -37,9 +37,9 @@ theme:
     - toc.follow
     - toc.integrate
     - toc.sticky
-    
+
     #- header.autohide  # Disabled to keep top nav always visible
-    
+
   # 👈 enables avatar display
   palette:
     # Dark mode only
@@ -65,6 +65,21 @@ nav:
       - 001-DockerCli: 001-DockerCli/README.md
       - 002-DockerFile: 002-DockerFile/README.md
       - 003-DockerFile-MultiStage: 003-DockerFile-MultiStage/README.md
+      - 004-LocalRegistry: 004-LocalRegistry/README.md
+      - 005-DockerCompose-Basics: 005-DockerCompose-Basics/README.md
+      - 006-DockerCompose-env: 006-DockerCompose-env/README.md
+      - 007-DockerCompose-fragments: 007-DockerCompose-fragments/README.md
+      - 008-crictl: 008-crictl/README.md
+      - 009-dive-layers: 009-dive-layers/README.md
+      - 010-bake: 010-bake/README.md
+      - 011-Security&Trust: 011-Security&Trust/README.md
+      - 012-gvisor: 012-gvisor/README.md
+      - 013-Cgroup: 013-Cgroup/README.md
+      - 014-DockerDaemon: 014-DockerDaemon/README.md
+      - 015-Networking: 015-Networking/README.md
+      - 016-Advanced-Build: 016-Advanced-Build/README.md
+      - 017-Logging: 017-Logging/README.md
+      - 100-Hands-On: 100-Hands-On/README.md
   - Tasks:
       - Tasks/index.md
       - DockerLogs: Tasks/DockerLogs/README.md
@@ -72,6 +87,12 @@ nav:
       - DockerDebug: Tasks/DockerDebug/README.md
       - DockerfileAdvanced: Tasks/DockerfileAdvanced/README.md
       - MultiStage: Tasks/MultiStage/README.md
+      - DockerCommit: Tasks/DockerCLI/DockerCommit/README.md
+      - DockerDebug: Tasks/DockerCLI/DockerDebug/README.md
+      - DockerLogs: Tasks/DockerCLI/DockerLogs/README.md
+      - DockerfileAdvanced: Tasks/DockerFile/DockerfileAdvanced/README.md
+      - MultiStage: Tasks/DockerFile/MultiStage/README.md
+      - DockerNetwork: Tasks/DockerNetwork/README.md
 ###
 ### mkdocs-site.yml
 ###
@@ -98,12 +119,12 @@ extra:
       link: https://github.com/Linuman/DockerLabs
       name: View on GitHub
       class: social-class__github
-    
+
     - icon: octicons/repo-forked-16
       link: https://github.com/Linuman/DockerLabs/network/members
       name: Fork this repo
       class: social-class__fork
-    
+
     - icon: octicons/star-16
       link: https://github.com/Linuman/DockerLabs/stargazers
       name: Star this repo
@@ -118,17 +139,17 @@ extra:
       link: https://discord.gg/U6xW23Ss
       name: Follow me on Discord
       class: social-class__discord
-    
+
     - icon: fontawesome/brands/stack-overflow
       link: https://stackoverflow.com/users/1755598/codewizard
       name: Follow me on Stack Overflow
       class: social-class__stackoverflow
-    
+
     - icon: fontawesome/brands/whatsapp
       link: https://wa.me/972548122310
       name: Follow me on WhatsApp
       class: social-class__whatsapp
-    
+
     - icon: fontawesome/solid/envelope
       link: mailto:nirg@codewizard.co.il
       name: Email me
@@ -181,9 +202,10 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-###
-### mkdocs-plugins.yml
-###
+        ###
+        ### mkdocs-plugins.yml
+        ###
+
 
 plugins:
   - awesome-pages
