@@ -8,6 +8,8 @@ services:
       - 8080-8090:80
     deploy:
       replicas: 3
+    depends_on:
+      - db
 
   db:
     # We use a mariadb image which supports both amd64 & arm64 architecture
@@ -26,6 +28,12 @@ services:
     expose:
       - 3306
       - 33060
+    healthcheck:
+      test: ["executable", "arg"]
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
   wordpress:
     image: wordpress:latest
     ports:

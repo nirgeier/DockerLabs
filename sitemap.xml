@@ -2,110 +2,102 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://nirgeier.github.io/DockerLabs/</loc>
-         <lastmod>2025-11-01</lastmod>
+         <lastmod>2025-12-29</lastmod>
     </url>
     <url>
          <loc>https://nirgeier.github.io/DockerLabs/001-DockerCli/</loc>
-         <lastmod>2025-11-01</lastmod>
+         <lastmod>2025-12-29</lastmod>
     </url>
     <url>
          <loc>https://nirgeier.github.io/DockerLabs/002-DockerFile/</loc>
-         <lastmod>2025-11-01</lastmod>
+         <lastmod>2025-12-29</lastmod>
     </url>
     <url>
          <loc>https://nirgeier.github.io/DockerLabs/003-DockerFile-MultiStage/</loc>
-         <lastmod>2025-11-01</lastmod>
+         <lastmod>2025-12-29</lastmod>
     </url>
     <url>
          <loc>https://nirgeier.github.io/DockerLabs/004-LocalRegistry/</loc>
-         <lastmod>2025-11-01</lastmod>
+         <lastmod>2025-12-29</lastmod>
     </url>
     <url>
          <loc>https://nirgeier.github.io/DockerLabs/004-LocalRegistry/AdvancedLocalRegistry/</loc>
-         <lastmod>2025-11-01</lastmod>
+         <lastmod>2025-12-29</lastmod>
     </url>
     <url>
          <loc>https://nirgeier.github.io/DockerLabs/005-DockerCompose-Basics/</loc>
-         <lastmod>2025-11-01</lastmod>
+         <lastmod>2025-12-29</lastmod>
     </url>
     <url>
          <loc>https://nirgeier.github.io/DockerLabs/006-DockerCompose-env/</loc>
-         <lastmod>2025-11-01</lastmod>
+         <lastmod>2025-12-29</lastmod>
     </url>
     <url>
          <loc>https://nirgeier.github.io/DockerLabs/007-DockerCompose-fragments/</loc>
-         <lastmod>2025-11-01</lastmod>
+         <lastmod>2025-12-29</lastmod>
     </url>
     <url>
          <loc>https://nirgeier.github.io/DockerLabs/008-crictl/</loc>
-         <lastmod>2025-11-01</lastmod>
+         <lastmod>2025-12-29</lastmod>
     </url>
     <url>
          <loc>https://nirgeier.github.io/DockerLabs/009-dive-layers/</loc>
-         <lastmod>2025-11-01</lastmod>
+         <lastmod>2025-12-29</lastmod>
     </url>
     <url>
          <loc>https://nirgeier.github.io/DockerLabs/010-bake/</loc>
-         <lastmod>2025-11-01</lastmod>
+         <lastmod>2025-12-29</lastmod>
     </url>
     <url>
          <loc>https://nirgeier.github.io/DockerLabs/011-Security%26Trust/</loc>
-         <lastmod>2025-11-01</lastmod>
+         <lastmod>2025-12-29</lastmod>
     </url>
     <url>
          <loc>https://nirgeier.github.io/DockerLabs/012-gvisor/</loc>
-         <lastmod>2025-11-01</lastmod>
+         <lastmod>2025-12-29</lastmod>
     </url>
     <url>
          <loc>https://nirgeier.github.io/DockerLabs/013-Cgroup/</loc>
-         <lastmod>2025-11-01</lastmod>
+         <lastmod>2025-12-29</lastmod>
     </url>
     <url>
          <loc>https://nirgeier.github.io/DockerLabs/014-DockerDaemon/</loc>
-         <lastmod>2025-11-01</lastmod>
+         <lastmod>2025-12-29</lastmod>
     </url>
     <url>
          <loc>https://nirgeier.github.io/DockerLabs/015-Networking/</loc>
-         <lastmod>2025-11-01</lastmod>
+         <lastmod>2025-12-29</lastmod>
     </url>
     <url>
          <loc>https://nirgeier.github.io/DockerLabs/016-Advanced-Build/</loc>
-         <lastmod>2025-11-01</lastmod>
+         <lastmod>2025-12-29</lastmod>
     </url>
     <url>
          <loc>https://nirgeier.github.io/DockerLabs/017-Logging/</loc>
-         <lastmod>2025-11-01</lastmod>
+         <lastmod>2025-12-29</lastmod>
     </url>
     <url>
          <loc>https://nirgeier.github.io/DockerLabs/100-Hands-On/</loc>
-         <lastmod>2025-11-01</lastmod>
+         <lastmod>2025-12-29</lastmod>
     </url>
     <url>
          <loc>https://nirgeier.github.io/DockerLabs/Tasks/</loc>
-         <lastmod>2025-11-01</lastmod>
+         <lastmod>2025-12-29</lastmod>
     </url>
     <url>
-         <loc>https://nirgeier.github.io/DockerLabs/Tasks/DockerCLI/DockerCommit/</loc>
-         <lastmod>2025-11-01</lastmod>
+         <loc>https://nirgeier.github.io/DockerLabs/Tasks/Docker-CLI-Tasks/</loc>
+         <lastmod>2025-12-29</lastmod>
     </url>
     <url>
-         <loc>https://nirgeier.github.io/DockerLabs/Tasks/DockerCLI/DockerDebug/</loc>
-         <lastmod>2025-11-01</lastmod>
+         <loc>https://nirgeier.github.io/DockerLabs/Tasks/DockerCompose/</loc>
+         <lastmod>2025-12-29</lastmod>
     </url>
     <url>
-         <loc>https://nirgeier.github.io/DockerLabs/Tasks/DockerCLI/DockerLogs/</loc>
-         <lastmod>2025-11-01</lastmod>
-    </url>
-    <url>
-         <loc>https://nirgeier.github.io/DockerLabs/Tasks/DockerFile/DockerfileAdvanced/</loc>
-         <lastmod>2025-11-01</lastmod>
-    </url>
-    <url>
-         <loc>https://nirgeier.github.io/DockerLabs/Tasks/DockerFile/MultiStage/</loc>
-         <lastmod>2025-11-01</lastmod>
+         <loc>https://nirgeier.github.io/DockerLabs/Tasks/DockerFile/</loc>
+         <lastmod>2025-12-29</lastmod>
     </url>
     <url>
          <loc>https://nirgeier.github.io/DockerLabs/Tasks/DockerNetwork/</loc>
-         <lastmod>2025-11-01</lastmod>
+         <lastmod>2025-12-29</lastmod>
     </url>
 </urlset>
